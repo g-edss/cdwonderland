@@ -1,5 +1,5 @@
 .nav-link{
-    color: white !important;
+    color: white;
     font-size: large !important;
     font-weight: bold;
 }
@@ -11,6 +11,11 @@
 footer, #headerTop{
     background-color: #232323;
     padding: 8px;
+}
+
+a, a:hover{
+    color: white;
+    text-decoration: none;
 }
 
 .logo{
