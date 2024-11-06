@@ -1,16 +1,25 @@
+body{
+    background-color: #EBEBEB;
+}
+
+footer, #headerTop{
+    background-color: #232323;
+    padding: 8px;
+}
+
 .nav-link{
     color: white;
     font-size: large !important;
     font-weight: bold;
 }
 
-.navbar{
-    background-color: #792133 !important;
+.nav-link:hover{
+    background-color: #EBEBEB !important;
+    color: #792133 !important;
 }
 
-footer, #headerTop{
-    background-color: #232323;
-    padding: 8px;
+.navbar{
+    background-color: #792133 !important;
 }
 
 a, a:hover{
@@ -22,8 +31,4 @@ a, a:hover{
     max-width: 30px;
     vertical-align: middle;
     height: auto;
-}
-
-body{
-    background-color: #EBEBEB;
 }
