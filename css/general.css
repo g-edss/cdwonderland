@@ -1,8 +1,26 @@
 body{
+    display: flex;
+    flex-direction: column;
     background-color: #EBEBEB;
 }
 
-footer, #headerTop{
+footer{
+    background-color: #232323;
+    padding: 8px;
+    margin-top: 30px;
+}
+
+p{
+    text-align: justify;
+}
+
+.btn{
+    background-color: #792133 !important; 
+    color: #EBEBEB !important;
+    
+}
+
+#headerTop{
     background-color: #232323;
     padding: 8px;
 }
