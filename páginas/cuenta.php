@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="../css/general.css">
-    <title>Cd Wonderland</title>
+    <title>Cuenta</title>
 </head>
 
 <body class="h-100">
@@ -41,7 +42,7 @@
                             <a href="../html/ediciones-especiales.html" class="nav-link">EDICIONES ESPECIALES</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../html/cuenta.html" class="nav-link">CUENTA</a>
+                            <a href="../html/cuenta.html" class="nav-link active" aria-current="page">CUENTA</a>
                         </li>
                         <li class="nav-item">
                             <a href="../html/nosotros.html" class="nav-link">NOSOTROS</a>
@@ -52,9 +53,62 @@
         </nav>
     </div>
 
+    <div class="container">
+        <div class="row m-5 g-3">
+            <div class="col-lg-6">
+                <div class="card shadow">
+                    <div class="card-body m-2">
+                        <h2 class="text-center fw-bold m-2">Crea tu Cuenta</h2>
+                            <?php
+                                require 'database.php';
+                                require 'registro-login.php';
+                            ?>
+                        <form class="row mt-4" method="POST" action="../php/registro-login.php">
+                            <div class="col-6">
+                                <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+                            </div>
+                            <div class="col-6">
+                                <input type="text" name="apellido" class="form-control" placeholder="Apellido">
+                            </div>
+                            <div class="col-12 mt-3">
+                                <input type="email" name="email" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="col-12 mt-3">
+                                <input type="password" name="contraseña" class="form-control" placeholder="Contraseña">
+                            </div>
+                            <div class="col-12 mt-3">
+                                <button type="submit" class="btn btn-sm">Registrarse</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
+            <div class="col-lg-6">
+                <div class="card shadow h-100">
+                    <div class="card-body m-2">
+                        <h2 class="text-center fw-bold m-2">Inicia Sesión</h2>
+                        <form class="row mt-4">
+                            <div class="col-6">
+                                <input type="text" class="form-control" placeholder="Nombre">
+                            </div>
+                            <div class="col-6">
+                                <input type="text" class="form-control" placeholder="Apellido">
+                            </div>
+                            <div class="col-12 mt-3">
+                                <input type="password" class="form-control" placeholder="Contraseña">
+                            </div>
+                            <div class="col-12 mt-4">
+                                <button type="submit" class="btn btn-sm">Ingresar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <footer class="fixed-bottom text-white pt-3">
+    <footer class="fixed text-white pt-3">
         <div class="container justify-content-center text-center">
             <div class="row">
                 <div class="col-lg-3 mb-lg-0 mb-2">
@@ -78,6 +132,7 @@
         </div>
     </footer>
 
+    <script src="../javascript/registro.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>

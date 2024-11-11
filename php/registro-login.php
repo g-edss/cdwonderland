@@ -8,15 +8,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $contraseña = $_POST['contraseña'];
 
     if(empty($nombre) || empty($apellido) || empty($contraseña)){
-        die('Por favor, ingrese todos los datos!');
+        echo '<div class="alert text-center" role="alert"></div>';
+        exit();
     }
     
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        die('Correo no válido.');
+        echo '<p>Correo no válido.</p>';
+        exit();
     }
 
     if (strlen($contraseña) < 8) {
-        die('La contraseña debe tener al menos 8 caracteres.');
+        echo '<p>La contraseña debe tener 8 caracteres.</p>';
+        exit();
     }
 
     $hashContra = password_hash($contraseña, PASSWORD_DEFAULT);
@@ -27,12 +30,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $ejecutar = mysqli_query($conexion, $query);
 
     if($ejecutar){
-        echo "
-        <script>
-            $
-        </script>
-        "
+        echo '<p>Usuario registrado, puede iniciar sesión!</p>';
+    }else{
+        echo '<p>Intentelo de nuevo.</p>';
     }
 }
 
-$conexion->close();
+mysqli_close($conexion);
