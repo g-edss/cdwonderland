@@ -59,11 +59,11 @@
                 <div class="card shadow">
                     <div class="card-body m-2">
                         <h2 class="text-center fw-bold m-2">Crea tu Cuenta</h2>
-                            <?php
-                                require 'database.php';
-                                require 'registro-login.php';
-                            ?>
-                        <form class="row mt-4" method="POST" action="../php/registro-login.php">
+                        <?php
+                            include("../php/database.php");
+                            include("../php/registro-usuario.php");
+                        ?>
+                        <form class="row mt-4" method="POST" action="../php/registro-usuario.php">
                             <div class="col-6">
                                 <input type="text" name="nombre" class="form-control" placeholder="Nombre">
                             </div>
@@ -77,7 +77,7 @@
                                 <input type="password" name="contraseña" class="form-control" placeholder="Contraseña">
                             </div>
                             <div class="col-12 mt-3">
-                                <button type="submit" class="btn btn-sm">Registrarse</button>
+                                <button type="submit" class="btn btn-sm" name="registro">Registrarse</button>
                             </div>
                         </form>
                     </div>
@@ -88,15 +88,19 @@
                 <div class="card shadow h-100">
                     <div class="card-body m-2">
                         <h2 class="text-center fw-bold m-2">Inicia Sesión</h2>
-                        <form class="row mt-4">
+                        <?php
+                            include("../php/database.php");
+                            include("../php/login-usuario.php");
+                        ?>
+                        <form class="row mt-4" method="POST" action="../php/login-usuario.php">
                             <div class="col-6">
-                                <input type="text" class="form-control" placeholder="Nombre">
+                                <input type="text" name="nombre" class="form-control" placeholder="Nombre">
                             </div>
                             <div class="col-6">
-                                <input type="text" class="form-control" placeholder="Apellido">
+                                <input type="text" name="apellido" class="form-control" placeholder="Apellido">
                             </div>
                             <div class="col-12 mt-3">
-                                <input type="password" class="form-control" placeholder="Contraseña">
+                                <input type="password" name="contraseña" class="form-control" placeholder="Contraseña">
                             </div>
                             <div class="col-12 mt-4">
                                 <button type="submit" class="btn btn-sm">Ingresar</button>
