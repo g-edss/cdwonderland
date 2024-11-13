@@ -1,16 +1,25 @@
 <?php
     include 'database.php';
 
-    $nombre = htmlspecialchars(trim($_POST['nombre']));
-    $apellido = htmlspecialchars(trim($_POST['apellido']));
-    $contraseña = $_POST['contraseña'];
+    if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['formulario'])) {
+    $formulario = $_POST['formulario'];
 
-    $validar_login = mysqli_query($conexion,
-    "SELECT * FROM usuario WHERE nombre = '$nombre' AND apellido = '$apellido' AND contraseña = '$contraseña'");
+    if ($formulario == 'login') {
+        $nombre = htmlspecialchars(trim($_POST['nombre']));
+        $apellido = htmlspecialchars(trim($_POST['apellido']));
+        $contraseña = $_POST['contraseña'];
 
-    if(mysqli_num_rows($validar_login) > 0){
-        header("location: ../páginas/perfil.html");
-    }else{
-        echo '<div class="text-center text-danger"><p>El usuario no existe, verifique los datos.</p></div>';
+        $hash = hash('md5', $contraseña);
+
+        $validar_login = mysqli_query($conexion,
+        "SELECT * FROM usuario WHERE nombre = '$nombre' AND apellido = '$apellido' AND contraseña = '$hash' AND id_Rol = 2");
+
+        if(mysqli_num_rows($validar_login) > 0){
+            echo '<script>
+                    window.location.href = "../páginas/perfil.html"
+                    </script>';
+        }else{
+            echo '<div class="text-center text-danger"><p>No se encontró el usuario, verifique los datos.</p></div>';
+        }
     }
-    mysqli_close($conexion);
+}
