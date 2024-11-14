@@ -14,7 +14,7 @@
 <body class="h-100">
     <header class="navbar navbar-dark sticky-top bg-small">
         <div class="ms-4 mt-2 d-flex align-items-center justify-content-center" id="brand">
-            <a href="../páginas/main.html" class="h5 p-2 mb-0">CD WONDERLAND</a>
+            <a href="../paginas/main.html" class="h5 p-2 mb-0">CD WONDERLAND</a>
             <img class="logo" src="../images/wave-sound.png">
         </div>
         <div class=" bg w-100 d-block d-md-none">fgfhgfhg</div>
@@ -30,22 +30,22 @@
                 <div class="position-sticky mt-4">
                     <ul class="nav flex-column ms-3">
                         <li class="nav-item">
-                            <a href="../páginas/generos.html" class="nav-link">ARTISTAS Y GÉNEROS</a>
+                            <a href="../paginas/generos.html" class="nav-link">ARTISTAS Y GÉNEROS</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../páginas/ediciones-especiales.html" class="nav-link">DISCOS</a>
+                            <a href="../paginas/ediciones-especiales.html" class="nav-link">DISCOS</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../páginas/cuenta.php" class="nav-link">PEDIDOS</a>
+                            <a href="../paginas/cuenta.php" class="nav-link">PEDIDOS</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../páginas/artistas.html" class="nav-link">CLIENTES</a>
+                            <a href="../paginas/artistas.html" class="nav-link">CLIENTES</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../páginas/admin-main.php" class="nav-link active" aria-current="page">ADMINISTRADORES</a>
+                            <a href="../paginas/admin-main.php" class="nav-link active" aria-current="page">ADMINISTRADORES</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../páginas/nosotros.html" class="nav-link">REPORTES</a>
+                            <a href="../paginas/nosotros.html" class="nav-link">REPORTES</a>
                         </li>
                     </ul>
             </nav>
@@ -74,7 +74,7 @@
                                 <td><?= $datos->email ?></td>
                                 <td><?= $datos->telefono ?></td>
                                 <td>
-                                    <a href="../páginas/modificar-usuario.php?id=<?= $datos->id_Usuario ?>" class="btn btn-warning btn-sm" name="editar">Editar</a>
+                                    <a href="../paginas/modificar-usuario.php?id=<?= $datos->id_Usuario ?>" class="btn btn-warning btn-sm" name="editar">Editar</a>
                                     <button type="submit" class="btn btn-danger btn-sm" name="registro">Eliminar</button>
                                 </td>
                             </tr>
