@@ -39,7 +39,7 @@
                             <a href="../páginas/cuenta.php" class="nav-link">PEDIDOS</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../páginas/artistas.html" class="nav-link active" aria-current="page">CLIENTES</a>
+                            <a href="../páginas/admin-cliente.php" class="nav-link">CLIENTES</a>
                         </li>
                         <li class="nav-item">
                             <a href="../páginas/admin-main.php" class="nav-link active" aria-current="page">ADMINISTRADORES</a>

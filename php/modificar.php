@@ -10,16 +10,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if (empty($nombre) || empty($apellido) || empty($telefono)) {
         echo '<div class="text-center text-danger"><p>Faltan campos por llenar.</p></div>';
-    } else
-        $query = "UPDATE usuario SET nombre='$nombre', apellido='$apellido', email='$email', telefono= '$telefono' WHERE id_Usuario= $id";
-
-    $ejecutar = mysqli_query($conexion, $query);
-
-    if ($ejecutar) {
-        echo '<script>
-                    window.location.href = "../páginas/admin-main.php"
-                    </script>';
     } else {
-        echo '<div class="text-center text-danger"><p>Ocurrió un error, intente de nuevo.</p></div>';
+        $query = "UPDATE usuario SET nombre='$nombre', apellido='$apellido', email='$email', telefono='$telefono' WHERE id_Usuario= $id";
+        $ejecutar = mysqli_query($conexion, $query);
+
+        if ($ejecutar) {
+            echo '<script>window.location.href = "../páginas/admin-main.php";</script>';
+        } else {
+            echo '<div class="text-center text-danger"><p>Ocurrió un error, intente de nuevo. Error: ' . mysqli_error($conexion) . '</p></div>';
+        }
     }
 }
+?>

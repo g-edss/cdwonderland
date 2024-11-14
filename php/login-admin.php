@@ -13,7 +13,7 @@
         $hash = hash('md5', $contraseña);
 
         $validar_login = mysqli_query($conexion,
-        "SELECT * FROM usuario WHERE nombre = '$nombre' AND apellido = '$apellido' AND contraseña = '$contraseña' AND id_Rol = 1");
+        "SELECT * FROM usuario WHERE nombre = '$nombre' AND apellido = '$apellido' AND contraseña = '$hash' AND id_Rol = 1");
 
         if(mysqli_num_rows($validar_login) > 0){
             echo '<script>

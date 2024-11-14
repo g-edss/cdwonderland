@@ -50,39 +50,7 @@
                     </ul>
             </nav>
             <main class="col-md-9 ms-sm-auto col-lg-9 px-md-4">
-                <h3 class="m-3 text-center fw-bold">Administradores</h3>
-                <div class="container d-flex justify-content-center">
-                    <div class="card shadow w-50 mt-2">
-                        <div class="card-body m-2">
-                            <h4 class="text-center m-2">Añadir Administrador</h4>
-                            <?php
-                            include '../php/database.php';
-                            include '../php/registro-admin.php';
-                            ?>
-                            <form class="row mt-4" method="POST">
-                                <input type="hidden" name="formulario" value="registro">
-                                <div class="col-6">
-                                    <input type="text" name="nombre" class="form-control form-control-sm" placeholder="Nombre">
-                                </div>
-                                <div class="col-6">
-                                    <input type="text" name="apellido" class="form-control form-control-sm" placeholder="Apellido">
-                                </div>
-                                <div class="col-12 mt-3">
-                                    <input type="email" name="email" class="form-control form-control-sm" placeholder="Email">
-                                </div>
-                                <div class="col-12 mt-3">
-                                    <input type="text" name="telefono" class="form-control form-control-sm" placeholder="Télefono">
-                                </div>
-                                <div class="col-12 mt-3">
-                                    <input type="password" name="contraseña" class="form-control form-control-sm" placeholder="Contraseña">
-                                </div>
-                                <div class="col-12 mt-3">
-                                    <button type="submit" class="btn btn-sm" name="registro">Registrarse</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                <h3 class="m-3 text-center fw-bold">Clientes</h3>
                 <table class="table table-bordered border-dark w-75">
                     <thead>
                         <tr class="text-center">

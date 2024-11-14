@@ -4,6 +4,11 @@ body {
     background-color: #EBEBEB;
 }
 
+#headerTop{
+    background-color: #232323;
+    padding: 8px;
+}
+
 .logo {
     max-width: 30px;
     vertical-align: middle;

@@ -33,8 +33,8 @@ $sql = $conexion->query("SELECT * FROM usuario WHERE id_Usuario = $id");
     <div class="container d-flex justify-content-center">
         <div class="card shadow w-50 mt-5">
             <div class="card-body m-2">
-                <form class="row mt-4" method="POST">
-                <input type="hidden" name="id" value="<?= $_GET['id']?>">
+                <form class="row mt-4" method="POST" action="../php/modificar.php">
+                    <input type="hidden" name="id" value="<?= $_GET['id']?>">
                     <?php
                     while ($datos = $sql->fetch_object()) { ?>
                         <div class="col-6">
@@ -47,11 +47,9 @@ $sql = $conexion->query("SELECT * FROM usuario WHERE id_Usuario = $id");
                             <input type="email" name="email" value="<?= $datos->email ?>" class="form-control form-control-sm" placeholder="Email">
                         </div>
                         <div class="col-12 mt-3">
-                            <input type="text" name="telefono" value="<?= $datos->telefono ?>" class="form-control form-control-sm" placeholder="Télefono">
+                            <input type="text" name="telefono" value="<?= $datos->telefono ?>" class="form-control form-control-sm" placeholder="Teléfono">
                         </div>
-                    <?php }
-
-                    ?>
+                    <?php } ?>
                     <div class="col-12 mt-3">
                         <button type="submit" class="btn btn-sm" name="editar">Guardar Cambios</button>
                     </div>
