@@ -26,7 +26,7 @@
     </header>
     <div class="container-fluid">
         <div class="row">
-            <nav id="sidebar" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+            <nav id="sidebar" class=" col-md-3 col-lg-3 d-md-block sidebar collapse">
                 <div class="position-sticky mt-4">
                     <ul class="nav flex-column ms-3">
                         <li class="nav-item">
@@ -48,6 +48,7 @@
                             <a href="../paginas/nosotros.html" class="nav-link">REPORTES</a>
                         </li>
                     </ul>
+                </div>
             </nav>
             <main class="col-md-9 ms-sm-auto col-lg-9 px-md-4">
                 <h3 class="m-3 text-center fw-bold">Administradores</h3>
