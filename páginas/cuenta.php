@@ -32,7 +32,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarToggler">
                     <ul class="navbar-nav justify-content-between w-100 px-5">
-                        <li class="nav-item text-danger">
+                        <li class="nav-item">
                             <a href="../páginas/artistas.html" class="nav-link">ARTISTAS</a>
                         </li>
                         <li class="nav-item">

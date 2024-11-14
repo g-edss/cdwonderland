@@ -1,26 +1,69 @@
-body{
+body {
     display: flex;
     flex-direction: column;
     background-color: #EBEBEB;
 }
 
-#headerTop{
-    background-color: #232323;
-    padding: 8px;
-}
-
-.logo{
+.logo {
     max-width: 30px;
     vertical-align: middle;
     height: auto;
 }
 
-.btn{
-    background-color: #792133 !important; 
+.col-12 .btn {
+    background-color: #792133 !important;
     color: #EBEBEB !important;
-    
+
 }
 
-.navbar{
-    background-color: #232323 !important;
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 45px 0 0;
+    background-color: #232323;
+}
+
+.sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 45px);
+    padding-top: .5rem;
+    overflow-x: hidden;
+}
+
+.navbar .navbar-toggler {
+    top: .25rem;
+    right: 1rem;
+}
+
+#brand{
+    z-index: 100;
+}
+.bg{
+    background-color:#232323;
+    block-size: 70px;
+    z-index: 0;
+    margin-top: -60px;
+}
+
+a, a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-link{
+    color: #ffffff !important;
+}
+
+.table {
+    margin-top: 50px;
+    justify-self: center;
+}
+
+thead {
+    background-color: black !important;
+    color: white;
 }
