@@ -24,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['formulario'])) {
 
             if (move_uploaded_file($_FILES['portada-disco']['tmp_name'], $ruta)) {
                 
-                $query = "INSERT INTO disco(titulo, id_tipoDisco, id_Genero, id_Artista, descripcion, precio, portadaURL)
-                VALUES ('$titulo', '$tipo', '$genero', '$artista', '$descripcion', '$precio', '$ruta')";
+                $query = "UPDATE disco SET titulo='$titulo', id_tipoDisco='$tipo', id_Genero='$genero', id_Artista='$artista', descripcion='$descripcion'
+                precio='$precio', portadaURL='$ruta'";
                 $ejecutar = mysqli_query($conexion, $query);
 
                 if ($ejecutar) {

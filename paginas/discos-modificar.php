@@ -2,8 +2,8 @@
 include '../php/database.php';
 $id = $_GET["id"];
 
-$sql = $conexion->query("SELECT * FROM artista WHERE id_Artista = $id");
-$artista = $sql->fetch_object();
+$sql = $conexion->query("SELECT * FROM disco WHERE id_Disco = $id");
+$disco = $sql->fetch_object();
 ?>
 
 <!DOCTYPE html>
@@ -34,17 +34,46 @@ $artista = $sql->fetch_object();
     <div class="container d-flex justify-content-center">
         <div class="card shadow w-50 mt-5">
             <div class="card-body m-2">
-            <form class="row mt-4" method="POST" action="../php/modificar-artista.php" enctype="multipart/form-data">
-                    <input type="hidden" name="formulario" value="editar-artista">
-                    <input type="hidden" name="id" value="<?= $artista->id_Artista ?>">
-                    <div class="col-12">
-                        <input type="text" name="nombre" value="<?= $artista->nombre ?>" class="form-control form-control-sm" placeholder="Nombre" required>
+                <form class="row mt-4" method="POST" action="../php/modificar-disco.php" enctype="multipart/form-data">
+                    <input type="hidden" name="formulario" value="editar-disco">
+                    <input type="hidden" name="id" value="<?= $disco->id_disco ?>">
+                    <class class="row m-1">
+                        <div class="col-6">
+                            <input type="text" name="titulo" value="<?= $disco->titulo ?>" class="form-control form-control-sm" placeholder="Título">
+                        </div>
+                        <div class="col-6">
+                            <select name="tipo" class="form-control form-control-sm" required>
+                                <option value="<?= $disco->id_tipoDisco ?>">Seleccione el tipo</option>
+                            </select>
+                        </div>
+                    </class>
+                    <div class="row m-1">
+                        <div class="col-6">
+                            <select name="genero" class="form-control form-control-sm" required>
+                                <option value="<?= $disco->id_Genero ?>">Seleccione el género</option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <select name="artista" class="form-control form-control-sm" required>
+                                <option value="<?= $disco->id_Artista ?>">Seleccione el artista</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="col-12 mt-2">
-                        <input type="file" class="form-control form-control-sm" name="imagen-artista">
-                    </div>
-                    <div class="col-12 mt-2">
-                        <img src="<?= $artista->imagenURL ?>" alt="Imagen Actual" style="max-width: 100px; max-height: 100px;">
+                    <class class="row m-1">
+                        <div class="col-12">
+                            <input type="text" value="<?= $disco->descripcion ?>" name="descripcion" class="form-control form-control-sm" placeholder="Descripción">
+                        </div>
+                    </class>
+                    <div class="row m-1">
+                        <div class="col-6">
+                            <input type="text" value="<?= $disco->precio ?>" name="precio" class="form-control form-control-sm" placeholder="Precio">
+                        </div>
+                        <div class="col-12 mt-2">
+                            <input type="file" class="form-control form-control-sm" name="portada-disco">
+                        </div>
+                        <div class="col-12 mt-2">
+                            <img src="<?= $disco->portadaURL ?>" alt="Imagen Actual" style="max-width: 100px; max-height: 100px;">
+                        </div>
                     </div>
                     <div class="col-12 mt-3">
                         <button type="submit" class="btn btn-sm">Guardar Cambios</button>

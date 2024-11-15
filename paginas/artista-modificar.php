@@ -34,7 +34,7 @@ $artista = $sql->fetch_object();
     <div class="container d-flex justify-content-center">
         <div class="card shadow w-50 mt-5">
             <div class="card-body m-2">
-            <form class="row mt-4" method="POST" action="../php/modificar-artista.php" enctype="multipart/form-data">
+                <form class="row mt-4" method="POST" action="../php/modificar-artista.php" enctype="multipart/form-data">
                     <input type="hidden" name="formulario" value="editar-artista">
                     <input type="hidden" name="id" value="<?= $artista->id_Artista ?>">
                     <div class="col-12">
