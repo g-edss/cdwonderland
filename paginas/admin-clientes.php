@@ -50,7 +50,7 @@
                     </ul>
             </nav>
             <main class="col-md-9 ms-sm-auto col-lg-9 px-md-4">
-                <h3 class="m-3 text-center fw-bold">Clientes</h3>
+            <h2 class="mt-1 mb-3 text-center fw-bold">Clientes</h2>
                 <table class="table table-bordered border-dark w-75">
                     <thead>
                         <tr class="text-center">
@@ -65,17 +65,17 @@
                     <tbody>
                         <?php
                         include '../php/database.php';
-                        $sql = $conexion->query("SELECT * FROM usuario WHERE id_Rol = 1");
+                        $sql = $conexion->query("SELECT * FROM usuario WHERE id_Rol = 2");
                         while ($datos = $sql->fetch_object()) { ?>
-                            <tr class="text-center">
+                            <tr class="text-center bg-white">
                                 <td><?= $datos->id_Usuario ?></td>
                                 <td><?= $datos->nombre ?></td>
                                 <td><?= $datos->apellido ?></td>
                                 <td><?= $datos->email ?></td>
                                 <td><?= $datos->telefono ?></td>
                                 <td>
-                                    <a href="../paginas/modificar-usuario.php?id=<?= $datos->id_Usuario ?>" class="btn btn-warning btn-sm" name="editar">Editar</a>
-                                    <button type="submit" class="btn btn-danger btn-sm" name="registro">Eliminar</button>
+                                    <a href="../paginas/modificar-cliente.php?id=<?= $datos->id_Usuario ?>" class="btn btn-warning btn-sm" name="editar">Editar</a>
+                                    <a href="../paginas/admin-clientes.php?id=<?= $datos->id_Usuario ?>" class="btn btn-danger btn-sm" name="registro">Eliminar</button>
                                 </td>
                             </tr>
                         <?php }

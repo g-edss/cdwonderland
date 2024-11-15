@@ -39,7 +39,7 @@
                             <a href="../paginas/cuenta.php" class="nav-link">PEDIDOS</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../paginas/admin-cliente.php" class="nav-link">CLIENTES</a>
+                            <a href="../paginas/admin-clientes.php" class="nav-link">CLIENTES</a>
                         </li>
                         <li class="nav-item">
                             <a href="../paginas/admin-main.php" class="nav-link active" aria-current="page">ADMINISTRADORES</a>
@@ -51,13 +51,12 @@
                 </div>
             </nav>
             <main class="col-md-9 ms-sm-auto col-lg-9 px-md-4">
-                <h3 class="m-3 text-center fw-bold">Administradores</h3>
+                <h2 class="mt-1 mb-3 text-center fw-bold">Administradores</h2>
                 <div class="container d-flex justify-content-center">
                     <div class="card shadow w-50 mt-2">
                         <div class="card-body m-2">
                             <h4 class="text-center m-2">Añadir Administrador</h4>
                             <?php
-                            include '../php/database.php';
                             include '../php/registro-admin.php';
                             ?>
                             <form class="row mt-4" method="POST">
@@ -78,12 +77,16 @@
                                     <input type="password" name="contraseña" class="form-control form-control-sm" placeholder="Contraseña">
                                 </div>
                                 <div class="col-12 mt-3">
-                                    <button type="submit" class="btn btn-sm" name="registro">Registrarse</button>
+                                    <button type="submit" class="btn btn-sm" name="registro">Registrar</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
+                <?php
+                include '../php/database.php';
+                include '../php/eliminar-usuario.php';
+                ?>
                 <table class="table table-bordered border-dark w-75">
                     <thead>
                         <tr class="text-center">
@@ -100,7 +103,7 @@
                         include '../php/database.php';
                         $sql = $conexion->query("SELECT * FROM usuario WHERE id_Rol = 1");
                         while ($datos = $sql->fetch_object()) { ?>
-                            <tr class="text-center">
+                            <tr class="text-center bg-white">
                                 <td><?= $datos->id_Usuario ?></td>
                                 <td><?= $datos->nombre ?></td>
                                 <td><?= $datos->apellido ?></td>
@@ -108,7 +111,7 @@
                                 <td><?= $datos->telefono ?></td>
                                 <td>
                                     <a href="../paginas/modificar-usuario.php?id=<?= $datos->id_Usuario ?>" class="btn btn-warning btn-sm" name="editar">Editar</a>
-                                    <button type="submit" class="btn btn-danger btn-sm" name="registro">Eliminar</button>
+                                    <a href="../paginas/admin-main.php?id=<?= $datos->id_Usuario ?>" class="btn btn-danger btn-sm" name="registro">Eliminar</button>
                                 </td>
                             </tr>
                         <?php }

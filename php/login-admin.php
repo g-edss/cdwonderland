@@ -17,7 +17,7 @@
 
         if(mysqli_num_rows($validar_login) > 0){
             echo '<script>
-                    window.location.href = "../páginas/admin-main.php"
+                    window.location.href = "../paginas/admin-main.php"
                     </script>';
         }else{
             echo '<div class="text-center text-danger"><p>No se encontró el usuario, verifique los datos.</p></div>';
