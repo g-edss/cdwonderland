@@ -5,6 +5,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['formulario'])) {
     $formulario = $_POST['formulario'];
 
     if ($formulario == 'registro-artista') {
+
+        
         $nombre = htmlspecialchars(trim($_POST['nombre']));
         $imagen = $_FILES['imagen-artista']['name'];
 

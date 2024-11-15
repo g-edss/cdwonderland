@@ -1,9 +1,9 @@
 <?php
 include '../php/database.php';
-$id = $_GET["id_genero"];
+$id = $_GET["id"];
 
-$sql = $conexion->query("SELECT * FROM genero WHERE id_Genero = $id");
-$genero = $sql->fetch_object();
+$sql = $conexion->query("SELECT * FROM artista WHERE id_Artista = $id");
+$artista = $sql->fetch_object();
 ?>
 
 <!DOCTYPE html>
@@ -34,17 +34,17 @@ $genero = $sql->fetch_object();
     <div class="container d-flex justify-content-center">
         <div class="card shadow w-50 mt-5">
             <div class="card-body m-2">
-            <form class="row mt-4" method="POST" action="../php/modificar-genero.php" enctype="multipart/form-data">
-                    <input type="hidden" name="formulario" value="editar-genero">
-                    <input type="hidden" name="id_genero" value="<?= $genero->id_Genero ?>">
+            <form class="row mt-4" method="POST" action="../php/modificar-artista.php" enctype="multipart/form-data">
+                    <input type="hidden" name="formulario" value="editar-artista">
+                    <input type="hidden" name="id" value="<?= $artista->id_Artista ?>">
                     <div class="col-12">
-                        <input type="text" name="nombre" value="<?= $genero->nombre ?>" class="form-control form-control-sm" placeholder="Nombre" required>
+                        <input type="text" name="nombre" value="<?= $artista->nombre ?>" class="form-control form-control-sm" placeholder="Nombre" required>
                     </div>
                     <div class="col-12 mt-2">
-                        <input type="file" class="form-control form-control-sm" name="imagen-genero">
+                        <input type="file" class="form-control form-control-sm" name="imagen-artista">
                     </div>
                     <div class="col-12 mt-2">
-                        <img src="<?= $genero->imagenUrl ?>" alt="Imagen Actual" style="max-width: 100px; max-height: 100px;">
+                        <img src="<?= $artista->imagenURL ?>" alt="Imagen Actual" style="max-width: 100px; max-height: 100px;">
                     </div>
                     <div class="col-12 mt-3">
                         <button type="submit" class="btn btn-sm">Guardar Cambios</button>

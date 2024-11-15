@@ -33,10 +33,10 @@
                             <a href="../paginas/admin-ayg.php" class="nav-link active" aria-current="page">ARTISTAS Y GÉNEROS</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../paginas/ediciones-especiales.html" class="nav-link">DISCOS</a>
+                            <a href="../paginas/admin-discos.php" class="nav-link">DISCOS</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../paginas/cuenta.php" class="nav-link">PEDIDOS</a>
+                            <a href="../paginas/admin-pedidos.php" class="nav-link">PEDIDOS</a>
                         </li>
                         <li class="nav-item">
                             <a href="../paginas/admin-clientes.php" class="nav-link">CLIENTES</a>
@@ -148,17 +148,17 @@
                     <tbody>
                         <?php
                         include '../php/database.php';
-                        $sql = $conexion->query("SELECT * FROM genero");
-                        while ($datosGenero = $sql->fetch_object()) { ?>
+                        $sqlGenero = $conexion->query("SELECT * FROM genero");
+                        while ($datosGenero = $sqlGenero->fetch_object()) { ?>
                             <tr class="text-center bg-white">
                                 <td><?= $datosGenero->id_Genero ?></td>
                                 <td><?= $datosGenero->nombre ?></td>
                                 <td>
-                                    <img src="<?= $datosGenero->imagenURL ?>" alt="<?= $datosGenero->nombre ?>" style="max-width: 100px; max-height: 100px;">
+                                    <img src="<?= $datosGenero->imagenUrl ?>" alt="<?= $datosGenero->nombre ?>" style="max-width: 100px; max-height: 100px;">
                                 </td>
                                 <td>
-                                    <a href="../paginas/genero-modificar.php?id=<?= $datosGenero->id_Genero ?>" class="btn btn-warning btn-sm">Editar</a>
-                                    <a href="../paginas/admin-ayg.php?id=<?= $datosGenero->id_Genero ?>" class="btn btn-danger btn-sm">Eliminar</a>
+                                    <a href="../paginas/genero-modificar.php?id_genero=<?= $datosGenero->id_Genero ?>" class="btn btn-warning btn-sm">Editar</a>
+                                    <a href="../paginas/admin-ayg.php?id_genero=<?= $datosGenero->id_Genero ?>" class="btn btn-danger btn-sm">Eliminar</a>
                                 </td>
                             </tr>
                         <?php }

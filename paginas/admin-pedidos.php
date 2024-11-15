@@ -33,16 +33,16 @@
                             <a href="../paginas/admin-ayg.php" class="nav-link">ARTISTAS Y GÉNEROS</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../paginas/ediciones-especiales.html" class="nav-link">DISCOS</a>
+                            <a href="../paginas/admin-discos.php" class="nav-link">DISCOS</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../paginas/admin-pedidos.php" class="nav-link">PEDIDOS</a>
+                            <a href="../paginas/admin-pedidos.php" class="nav-link active" aria-current="page">PEDIDOS</a>
                         </li>
                         <li class="nav-item">
                             <a href="../paginas/admin-clientes.php" class="nav-link">CLIENTES</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../paginas/admin-main.php" class="nav-link active" aria-current="page">ADMINISTRADORES</a>
+                            <a href="../paginas/admin-main.php" class="nav-link">ADMINISTRADORES</a>
                         </li>
                         <li class="nav-item">
                             <a href="../paginas/nosotros.html" class="nav-link">REPORTES</a>
@@ -110,8 +110,8 @@
                                 <td><?= $datos->email ?></td>
                                 <td><?= $datos->telefono ?></td>
                                 <td>
-                                    <a href="../paginas/modificar-usuario.php?id=<?= $datos->id_Usuario ?>" class="btn btn-warning btn-sm mb-1" name="editar">Editar</a>
-                                    <a href="../paginas/admin-main.php?id=<?= $datos->id_Usuario ?>" class="btn btn-danger btn-sm mb-1" name="registro">Eliminar</a>
+                                    <a href="../paginas/modificar-usuario.php?id=<?= $datos->id_Usuario ?>" class="btn btn-warning btn-sm" name="editar">Editar</a>
+                                    <a href="../paginas/admin-main.php?id=<?= $datos->id_Usuario ?>" class="btn btn-danger btn-sm" name="registro">Eliminar</a>
                                 </td>
                             </tr>
                         <?php }

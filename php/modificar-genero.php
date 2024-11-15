@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['formulario'])) {
     $formulario = $_POST['formulario'];
 
     if ($formulario == 'editar-genero') {
-        $id = $_POST["id"];
+        $id = $_POST["id_genero"];
         $nombre = htmlspecialchars(trim($_POST['nombre']));
         $imagen = $_FILES['imagen-genero']['name'];
         
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['formulario'])) {
 
             if (move_uploaded_file($_FILES['imagen-genero']['tmp_name'], $ruta)) {
                 
-                $query = "UPDATE genero SET nombre='$nombre', imagenURL='$ruta' WHERE id_Genero= $id";
+                $query = "UPDATE genero SET nombre='$nombre', imagenUrl='$ruta' WHERE id_Genero= $id";
                 $ejecutar = mysqli_query($conexion, $query);
 
                 if ($ejecutar) {

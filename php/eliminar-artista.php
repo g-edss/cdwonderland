@@ -9,10 +9,10 @@ if (!empty($_GET["id"])) {
 
     if ($resultado && mysqli_num_rows($resultado) > 0) {
         $artista = mysqli_fetch_assoc($resultado);
-        $rutaImagen = $artista['imagenURL'];
+        $ruta = $artista['imagenURL'];
 
-        if (file_exists($rutaImagen)) {
-            unlink($rutaImagen);
+        if (file_exists($ruta)) {
+            unlink($ruta);
         }
 
         $queryEliminar = "DELETE FROM artista WHERE id_Artista = $id";
