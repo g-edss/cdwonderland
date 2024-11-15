@@ -32,7 +32,7 @@
                 include '../php/login-admin.php';
                 ?>
                 <form class="row mt-4" method="POST">
-                    <input type="hidden" name="formulario" value="login">
+                    <input type="hidden" name="formulario" value="login-admin">
                     <div class="col-6">
                         <input type="text" name="nombre" class="form-control" placeholder="Nombre">
                     </div>

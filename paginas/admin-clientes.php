@@ -26,7 +26,7 @@
     </header>
     <div class="container-fluid">
         <div class="row">
-            <nav id="sidebar" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+            <nav id="sidebar" class=" col-md-3 col-lg-3 d-md-block sidebar collapse">
                 <div class="position-sticky mt-4">
                     <ul class="nav flex-column ms-3">
                         <li class="nav-item">
@@ -39,7 +39,7 @@
                             <a href="../paginas/cuenta.php" class="nav-link">PEDIDOS</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../paginas/artistas.html" class="nav-link">CLIENTES</a>
+                            <a href="../paginas/admin-clientes.php" class="nav-link">CLIENTES</a>
                         </li>
                         <li class="nav-item">
                             <a href="../paginas/admin-main.php" class="nav-link active" aria-current="page">ADMINISTRADORES</a>
@@ -48,9 +48,14 @@
                             <a href="../paginas/nosotros.html" class="nav-link">REPORTES</a>
                         </li>
                     </ul>
+                </div>
             </nav>
             <main class="col-md-9 ms-sm-auto col-lg-9 px-md-4">
-            <h2 class="mt-1 mb-3 text-center fw-bold">Clientes</h2>
+                <h2 class="mt-1 mb-3 text-center fw-bold">Clientes</h2>
+                <?php
+                include '../php/database.php';
+                include '../php/eliminar-usuario.php';
+                ?>
                 <table class="table table-bordered border-dark w-75">
                     <thead>
                         <tr class="text-center">
@@ -74,7 +79,6 @@
                                 <td><?= $datos->email ?></td>
                                 <td><?= $datos->telefono ?></td>
                                 <td>
-                                    <a href="../paginas/modificar-cliente.php?id=<?= $datos->id_Usuario ?>" class="btn btn-warning btn-sm" name="editar">Editar</a>
                                     <a href="../paginas/admin-clientes.php?id=<?= $datos->id_Usuario ?>" class="btn btn-danger btn-sm" name="registro">Eliminar</button>
                                 </td>
                             </tr>

@@ -4,7 +4,7 @@
     if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['formulario'])) {
         $formulario = $_POST['formulario'];
 
-    if ($formulario == 'login') {
+    if ($formulario == 'login-admin') {
 
         $nombre = htmlspecialchars(trim($_POST['nombre']));
         $apellido = htmlspecialchars(trim($_POST['apellido']));
