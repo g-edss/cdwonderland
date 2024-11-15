@@ -30,7 +30,7 @@
                 <div class="position-sticky mt-4">
                     <ul class="nav flex-column ms-3">
                         <li class="nav-item">
-                            <a href="../paginas/generos.html" class="nav-link">ARTISTAS Y GÉNEROS</a>
+                            <a href="../paginas/admin-ayg.php" class="nav-link">ARTISTAS Y GÉNEROS</a>
                         </li>
                         <li class="nav-item">
                             <a href="../paginas/ediciones-especiales.html" class="nav-link">DISCOS</a>
@@ -111,7 +111,7 @@
                                 <td><?= $datos->telefono ?></td>
                                 <td>
                                     <a href="../paginas/modificar-usuario.php?id=<?= $datos->id_Usuario ?>" class="btn btn-warning btn-sm" name="editar">Editar</a>
-                                    <a href="../paginas/admin-main.php?id=<?= $datos->id_Usuario ?>" class="btn btn-danger btn-sm" name="registro">Eliminar</button>
+                                    <a href="../paginas/admin-main.php?id=<?= $datos->id_Usuario ?>" class="btn btn-danger btn-sm" name="registro">Eliminar</a>
                                 </td>
                             </tr>
                         <?php }

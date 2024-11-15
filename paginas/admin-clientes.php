@@ -79,7 +79,7 @@
                                 <td><?= $datos->email ?></td>
                                 <td><?= $datos->telefono ?></td>
                                 <td>
-                                    <a href="../paginas/admin-clientes.php?id=<?= $datos->id_Usuario ?>" class="btn btn-danger btn-sm" name="registro">Eliminar</button>
+                                    <a href="../paginas/admin-clientes.php?id=<?= $datos->id_Usuario ?>" class="btn btn-danger btn-sm" name="registro">Eliminar</a>
                                 </td>
                             </tr>
                         <?php }
