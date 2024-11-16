@@ -8,7 +8,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="../css/general.css">
-    <title>Cuenta</title>
+    <title>Cuenta - CD Wonderland</title>
 </head>
 
 <body class="h-100">
@@ -32,14 +32,14 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarToggler">
                     <ul class="navbar-nav justify-content-between w-100 px-5">
-                        <li class="nav-item">
-                            <a href="../paginas/artistas.html" class="nav-link">ARTISTAS</a>
+                        <li class="nav-item text-danger">
+                            <a href="../paginas/artistas.php" class="nav-link">ARTISTAS</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../paginas/generos.html" class="nav-link">GÉNEROS</a>
+                            <a href="../paginas/generos.php" class="nav-link">GÉNEROS</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../paginas/ediciones-especiales.html" class="nav-link">EDICIONES ESPECIALES</a>
+                            <a href="../paginas/ediciones-especiales.php" class="nav-link">EDICIONES ESPECIALES</a>
                         </li>
                         <li class="nav-item">
                             <a href="../paginas/cuenta.php" class="nav-link active" aria-current="page">CUENTA</a>
@@ -60,8 +60,8 @@
                     <div class="card-body m-2">
                         <h2 class="text-center fw-bold m-2">Crea tu Cuenta</h2>
                         <?php
-                            include '../php/database.php';
-                            include '../php/registro-usuario.php';
+                        include '../php/database.php';
+                        include '../php/registro-usuario.php';
                         ?>
                         <form class="row mt-4" method="POST">
                             <input type="hidden" name="formulario" value="registro">
@@ -90,8 +90,8 @@
                     <div class="card-body m-2">
                         <h2 class="text-center fw-bold m-2">Inicia Sesión</h2>
                         <?php
-                            include '../php/database.php';
-                            include '../php/login-usuario.php';
+                        include '../php/database.php';
+                        include '../php/login-usuario.php';
                         ?>
                         <form class="row mt-4" method="POST">
                             <input type="hidden" name="formulario" value="login">
@@ -118,7 +118,7 @@
         <div class="container justify-content-center text-center">
             <div class="row">
                 <div class="col-lg-3 mb-lg-0 mb-2">
-                    <span class="h5">!Contáctanos!</span>
+                    <span class="h5">¡Contáctanos!</span>
                 </div>
                 <div class="col-lg-6 d-flex justify-content-around mb-2">
                     <a href="https://wa.me/" target="_blank">

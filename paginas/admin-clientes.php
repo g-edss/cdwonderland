@@ -28,12 +28,12 @@
         <div class="row">
             <nav id="sidebar" class=" col-md-3 col-lg-3 d-md-block sidebar collapse">
                 <div class="position-sticky mt-4">
-                <ul class="nav flex-column ms-3">
+                    <ul class="nav flex-column ms-3">
                         <li class="nav-item">
-                            <a href="../paginas/admin-ayg.php" class="nav-link active" aria-current="page">ARTISTAS Y GÉNEROS</a>
+                            <a href="../paginas/admin-ayg.php" class="nav-link">ARTISTAS Y GÉNEROS</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../paginas/ediciones-especiales.html" class="nav-link">DISCOS</a>
+                            <a href="../paginas/admin-discos.php" class="nav-link">DISCOS</a>
                         </li>
                         <li class="nav-item">
                             <a href="../paginas/admin-pedidos.php" class="nav-link">PEDIDOS</a>
@@ -45,7 +45,7 @@
                             <a href="../paginas/admin-main.php" class="nav-link">ADMINISTRADORES</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../paginas/nosotros.html" class="nav-link">REPORTES</a>
+                            <a href="../paginas/admin-reportes.php" class="nav-link">REPORTES</a>
                         </li>
                     </ul>
                 </div>
@@ -59,7 +59,7 @@
                 <table class="table table-bordered border-dark w-75">
                     <thead>
                         <tr class="text-center">
-                            <th scope="col">Id</th>
+                            <th scope="col">ID</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Apellido</th>
                             <th scope="col">Email</th>

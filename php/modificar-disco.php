@@ -24,12 +24,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['formulario'])) {
 
             if (move_uploaded_file($_FILES['portada-disco']['tmp_name'], $ruta)) {
                 
-                $query = "UPDATE disco SET titulo='$titulo', id_tipoDisco='$tipo', id_Genero='$genero', id_Artista='$artista', descripcion='$descripcion'
+                $query = "UPDATE disco SET titulo='$titulo', id_tipoDisco='$tipo', id_Genero='$genero', id_Artista='$artista', descripcion='$descripcion',
                 precio='$precio', portadaURL='$ruta'";
                 $ejecutar = mysqli_query($conexion, $query);
 
                 if ($ejecutar) {
-                    echo '<div class="text-center text-success"><p>Disco registrado.</p></div>';
+                    echo '<script>window.location.href = "../paginas/admin-ayg.php";</script>';
                 } else {
                     echo '<div class="text-center text-danger"><p>Ocurrió un error, intente de nuevo.</p></div>';
                 }

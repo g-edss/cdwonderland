@@ -45,7 +45,7 @@
                             <a href="../paginas/admin-main.php" class="nav-link">ADMINISTRADORES</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../paginas/nosotros.html" class="nav-link">REPORTES</a>
+                            <a href="../paginas/admin-reportes.php" class="nav-link">REPORTES</a>
                         </li>
                     </ul>
                 </div>
@@ -139,7 +139,7 @@
                 <table class="table table-bordered border-dark w-75">
                     <thead>
                         <tr class="text-center">
-                            <th scope="col">Id</th>
+                            <th scope="col">ID</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Imagen</th>
                             <th scope="col">Acciones</th>

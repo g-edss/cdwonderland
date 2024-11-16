@@ -7,23 +7,24 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/general.css">
-    <title>Géneros</title>
+    <title>Cd Wonderland</title>
 </head>
 
-<body class="h-100">
+<body class="vh-100">
     <div class="header sticky-top">
         <div class="container-fluid text-white fw-bold" id="headerTop">
             <div class="d-flex align-items-center">
                 <div class="d-flex align-items-center justify-content-center flex-grow-1" style="margin-left: 125px;">
-                    <a href="../paginas/main.html" class="h5 me-2 mb-0">CD WONDERLAND</a>
+                    <a href="../paginas/main.php" class="h5 me-2 mb-0">CD WONDERLAND</a>
                     <img class="logo" src="../images/wave-sound.png">
                 </div>
                 <div class="d-flex align-items-center mx-2 mb-0">
-                    <a href="../paginas/carrito.html" class="h6 me-2 mb-0">Mi Carrito</a>
+                    <a href="../paginas/carrito.php" class="h6 me-2 mb-0">Mi Carrito</a>
                     <img class="logo" src="../images/shopping-cart.png">
                 </div>
             </div>
         </div>
+
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler">
@@ -32,13 +33,13 @@
                 <div class="collapse navbar-collapse" id="navbarToggler">
                     <ul class="navbar-nav justify-content-between w-100 px-5">
                         <li class="nav-item text-danger">
-                            <a href="../paginas/artistas.html" class="nav-link">ARTISTAS</a>
+                            <a href="../paginas/artistas.php" class="nav-link">ARTISTAS</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../paginas/generos.html" class="nav-link active" aria-current="page">GÉNEROS</a>
+                            <a href="../paginas/generos.php" class="nav-link">GÉNEROS</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../paginas/ediciones-especiales.html" class="nav-link">EDICIONES ESPECIALES</a>
+                            <a href="../paginas/ediciones-especiales.php" class="nav-link">EDICIONES ESPECIALES</a>
                         </li>
                         <li class="nav-item">
                             <a href="../paginas/cuenta.php" class="nav-link">CUENTA</a>
@@ -52,13 +53,28 @@
         </nav>
     </div>
 
-
+    <div class="container">
+        <h3 class="text-center mt-5">¡Aquí encontarás los discos de tus artistas favoritos!</h3>
+        <div id="carousel" class="carousel slide mt-3" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="..." class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="..." class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="..." class="d-block w-100" alt="...">
+              </div>
+            </div>
+          </div>
+    </div>
 
     <footer class="fixed-bottom text-white pt-3">
         <div class="container justify-content-center text-center">
             <div class="row">
                 <div class="col-lg-3 mb-lg-0 mb-2">
-                    <span class="h5">!Contáctanos!</span>
+                    <span class="h5">¡Contáctanos!</span>
                 </div>
                 <div class="col-lg-6 d-flex justify-content-around mb-2">
                     <a href="https://wa.me/" target="_blank">
@@ -84,4 +100,4 @@
 
 </body>
 
-</html>
+</php>

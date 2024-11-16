@@ -1,15 +1,15 @@
 <?php
 include 'database.php';
 
-if (!empty($_GET["id"])) {
-    $id = $_GET["id"];
+if (!empty($_GET["id_genero"])) {
+    $id = $_GET["id_genero"];
 
-    $query = "SELECT imagenURL FROM genero WHERE id_Genero = $id";
+    $query = "SELECT imagenUrl FROM genero WHERE id_Genero = $id";
     $resultado = mysqli_query($conexion, $query);
 
     if ($resultado && mysqli_num_rows($resultado) > 0) {
         $genero = mysqli_fetch_assoc($resultado);
-        $ruta = $genero['imagenURL'];
+        $ruta = $genero['imagenUrl'];
 
         if (file_exists($ruta)) {
             unlink($ruta);

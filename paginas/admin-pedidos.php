@@ -33,10 +33,10 @@
                             <a href="../paginas/admin-ayg.php" class="nav-link">ARTISTAS Y GÉNEROS</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../paginas/admin-discos.php" class="nav-link">DISCOS</a>
+                            <a href="../paginas/admin-discos.php" class="nav-link active" aria-current="page">DISCOS</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../paginas/admin-pedidos.php" class="nav-link active" aria-current="page">PEDIDOS</a>
+                            <a href="../paginas/admin-pedidos.php" class="nav-link">PEDIDOS</a>
                         </li>
                         <li class="nav-item">
                             <a href="../paginas/admin-clientes.php" class="nav-link">CLIENTES</a>
@@ -45,74 +45,63 @@
                             <a href="../paginas/admin-main.php" class="nav-link">ADMINISTRADORES</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../paginas/nosotros.html" class="nav-link">REPORTES</a>
+                            <a href="../paginas/admin-reportes.php" class="nav-link">REPORTES</a>
                         </li>
                     </ul>
                 </div>
             </nav>
             <main class="col-md-9 ms-sm-auto col-lg-9 px-md-4">
-                <h2 class="mt-1 mb-3 text-center fw-bold">Administradores</h2>
-                <div class="container d-flex justify-content-center">
-                    <div class="card shadow w-50 mt-2">
-                        <div class="card-body m-2">
-                            <h4 class="text-center m-2">Añadir Administrador</h4>
-                            <?php
-                            include '../php/registro-admin.php';
-                            ?>
-                            <form class="row mt-4" method="POST">
-                                <input type="hidden" name="formulario" value="registro">
-                                <div class="col-6">
-                                    <input type="text" name="nombre" class="form-control form-control-sm" placeholder="Nombre">
-                                </div>
-                                <div class="col-6">
-                                    <input type="text" name="apellido" class="form-control form-control-sm" placeholder="Apellido">
-                                </div>
-                                <div class="col-12 mt-3">
-                                    <input type="email" name="email" class="form-control form-control-sm" placeholder="Email">
-                                </div>
-                                <div class="col-12 mt-3">
-                                    <input type="text" name="telefono" class="form-control form-control-sm" placeholder="Télefono">
-                                </div>
-                                <div class="col-12 mt-3">
-                                    <input type="password" name="contraseña" class="form-control form-control-sm" placeholder="Contraseña">
-                                </div>
-                                <div class="col-12 mt-3">
-                                    <button type="submit" class="btn btn-sm" name="registro">Registrar</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <?php
-                include '../php/database.php';
-                include '../php/eliminar-usuario.php';
-                ?>
+                <h2 class="mt-1 mb-3 text-center fw-bold">Listas de Pedidos</h2>
                 <table class="table table-bordered border-dark w-75">
                     <thead>
                         <tr class="text-center">
-                            <th scope="col">Id</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Apellido</th>
+                            <th scope="col">Cliente</th>
                             <th scope="col">Email</th>
                             <th scope="col">Teléfono</th>
-                            <th scope="col">Acciones</th>
+                            <th scope="col">Dirección</th>
+                            <th scope="col">Fecha de Entrega</th>
+                            <th scope="col">Fecha de Compra</th>
+                            <th scope="col">Lista de Productos</th>
+                            <th scope="col">Total</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         include '../php/database.php';
-                        $sql = $conexion->query("SELECT * FROM usuario WHERE id_Rol = 1");
-                        while ($datos = $sql->fetch_object()) { ?>
-                            <tr class="text-center bg-white">
-                                <td><?= $datos->id_Usuario ?></td>
-                                <td><?= $datos->nombre ?></td>
-                                <td><?= $datos->apellido ?></td>
-                                <td><?= $datos->email ?></td>
-                                <td><?= $datos->telefono ?></td>
-                                <td>
-                                    <a href="../paginas/modificar-usuario.php?id=<?= $datos->id_Usuario ?>" class="btn btn-warning btn-sm" name="editar">Editar</a>
-                                    <a href="../paginas/admin-main.php?id=<?= $datos->id_Usuario ?>" class="btn btn-danger btn-sm" name="registro">Eliminar</a>
-                                </td>
+                        $sql = $conexion->query("
+                            SELECT 
+                                usuario.nombre AS nombre_cliente,
+                                usuario.email AS email_cliente,
+                                usuario.telefono AS telefono_cliente,
+                                compra.direccion AS direccion,
+                                usuario.direcEstado,
+                                usuario.direcMunicipio,
+                                compra.fechaCompra,
+                                p.titulo AS producto_titulo,
+                                dc.cantidad,
+                                (p.precio * dc.cantidad) AS total_producto
+                            FROM 
+                                compras c
+                            JOIN 
+                                usuarios u ON c.id_usuario = u.id
+                            JOIN 
+                                detalle_compra dc ON c.id = dc.id_compra
+                            JOIN 
+                                productos p ON dc.id_producto = p.id
+                            ");
+                        $totalPedido = 0;
+                        while ($datosCompra = $sql->fetch_object()) {
+                            $totalPedido += $datosCompra->total_producto;
+                        ?>
+                            <tr class="text-center bg-white fs-6">
+                                <td><?= $datosCompra->nombre_cliente ?></td>
+                                <td><?= $datosCompra->email_cliente ?></td>
+                                <td><?= $datosCompra->telefono_cliente ?></td>
+                                <td><?= $datosCompra->direccion ?>, <?= $datosCompra->direcEstado ?>, <?= $datosCompra->direcMunicipio ?></td>
+                                <td><?= $datosCompra->fecha_entrega ?></td> <!-- Asegúrate de que esta columna exista en tu tabla de compras -->
+                                <td><?= $datosCompra->fecha_compra ?></td>
+                                <td><?= $datosCompra->producto_titulo ?> (<?= $datosCompra->cantidad ?>)</td>
+                                <td><?= number_format($totalPedido, 2) ?></td>
                             </tr>
                         <?php }
                         ?>

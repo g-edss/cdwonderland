@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['formulario'])) {
     if (empty($nombre) || empty($apellido) || empty($contraseña)) {
         echo '<div class="text-center text-danger"><p>Faltan campos por llenar.</p></div>';
     } else if (strlen($contraseña) < 8) {
-        echo '<div class="text-center text-danger"><p>La contraseña debe tener 8 caracteres.</p></div>';
+        echo '<div class="text-center text-secondary"><p>La contraseña debe tener 8 caracteres.</p></div>';
     } else {
         $hash = hash('md5', $contraseña);
 
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['formulario'])) {
         if (mysqli_num_rows($verificar_correo) > 0) {
             echo '<div class="text-center text-secondary"><p>El correo ya existe.</p></div>';
         } else if (mysqli_num_rows($verificar_usuario) > 0) {
-            echo '<div class="text-center text-secondary"><p>El usuario ya existe.</p></div>';
+            echo '<div class="text-center text-danger"><p>El usuario ya existe.</p></div>';
         } else {
             $query = "INSERT INTO usuario (nombre, apellido, email, contraseña, id_Rol) VALUES ('$nombre', '$apellido', '$email', '$hash', 2)";
 
