@@ -25,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['formulario'])) {
                 echo '<div class="text-center text-danger"><p>El disco ya existe.</p></div>';
             } else if(mysqli_num_rows($verificar_desc) > 0){
                 echo '<div class="text-center text-secondary"><p>La descripción ya existe.</p></div>';
+            }else{
                 
                 $carpeta = '../images/discos/';
                 $ruta = $carpeta . basename($portada);
@@ -34,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['formulario'])) {
                 if (mysqli_num_rows($verificar_ruta) > 0) {
                     echo '<div class="text-center text-danger"><p>La imagen ya está asignada.</p></div>';
                 }else{
-                    if (move_uploaded_file($_FILES['portada-disco']['tmp_name'], $ruta)) {
+                    if (move_uploaded_file($_FILES['portada-disco']['tmp_name'], $ruta)){
 
                         $query = "INSERT INTO disco(titulo, id_tipoDisco, id_Genero, id_Artista, descripcion, precio, portadaURL)
                     VALUES ('$titulo', '$tipo', '$genero', '$artista', '$descripcion', '$precio', '$ruta')";

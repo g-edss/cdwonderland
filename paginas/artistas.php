@@ -63,10 +63,10 @@
                     <div class="card shadow" id="animacion">
                         <div class="card-body">
                             <div class="d-flex align-items-center justify-content-around mx-3">
-                                <a href="../paginas/disco.php?id=<?= $info->id_Artista ?>">
+                                <a href="../paginas/disco.php?id_disco=<?= $info->id_Artista ?>">
                                     <img alt="<?= $info->nombre ?>" src="<?= $info->imagenURL ?>" class="portada">
                                 </a>
-                                <a href="../paginas/disco.php?id=<?= $info->id_Artista ?>" class="h4 text-center text-dark text-capitalize"><?= $info->nombre ?></a>
+                                <a href="../paginas/disco.php?id_disco=<?= $info->id_Artista ?>" class="h4 text-center text-dark text-capitalize"><?= $info->nombre ?></a>
                             </div>
                         </div>
                     </div>

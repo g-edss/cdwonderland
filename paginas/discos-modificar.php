@@ -43,19 +43,37 @@ $disco = $sql->fetch_object();
                         </div>
                         <div class="col-6">
                             <select name="tipo" class="form-control form-control-sm" required>
-                                <option value="<?= $disco->id_tipoDisco ?>">Seleccione el tipo</option>
+                                <option value="">Seleccione el tipo</option>
+                                <?php
+                                $tipos = $conexion->query("SELECT * FROM tipo_disco");
+                                while ($tipo = $tipos->fetch_object()) {
+                                    echo "<option value='{$tipo->id_tipoDisco}'>{$disco->tipo}</option>";
+                                }
+                                ?>
                             </select>
                         </div>
                     </class>
                     <div class="row m-1">
                         <div class="col-6">
                             <select name="genero" class="form-control form-control-sm" required>
-                                <option value="<?= $disco->id_Genero ?>">Seleccione el género</option>
+                                <option value="">Seleccione el género</option>
+                                <?php
+                                $generos = $conexion->query("SELECT * FROM genero");
+                                while ($genero = $generos->fetch_object()) {
+                                    echo "<option value='{$genero->id_Genero}'>{$genero->nombre}</option>";
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="col-6">
                             <select name="artista" class="form-control form-control-sm" required>
-                                <option value="<?= $disco->id_Artista ?>">Seleccione el artista</option>
+                                <option value="">Seleccione el artista</option>
+                                <?php
+                                $artistas = $conexion->query("SELECT * FROM artista");
+                                while ($artista = $artistas->fetch_object()) {
+                                    echo "<option value='{$artista->id_Artista}'>{$artista->nombre}</option>";
+                                }
+                                ?>
                             </select>
                         </div>
                     </div>
