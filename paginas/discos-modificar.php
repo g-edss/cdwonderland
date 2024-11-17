@@ -36,18 +36,19 @@ $disco = $sql->fetch_object();
             <div class="card-body m-2">
                 <form class="row mt-4" method="POST" action="../php/modificar-disco.php" enctype="multipart/form-data">
                     <input type="hidden" name="formulario" value="editar-disco">
-                    <input type="hidden" name="id" value="<?= $disco->id_disco ?>">
+                    <input type="hidden" name="id" value="<?= $disco->id_Disco ?>">
                     <class class="row m-1">
                         <div class="col-6">
                             <input type="text" name="titulo" value="<?= $disco->titulo ?>" class="form-control form-control-sm" placeholder="Título">
                         </div>
                         <div class="col-6">
                             <select name="tipo" class="form-control form-control-sm" required>
-                                <option value="">Seleccione el tipo</option>
                                 <?php
-                                $tipos = $conexion->query("SELECT * FROM tipo_disco");
+                                $tipos = $conexion->query("SELECT * FROM tipo_disco"); ?>
+                                <?php
                                 while ($tipo = $tipos->fetch_object()) {
-                                    echo "<option value='{$tipo->id_tipoDisco}'>{$disco->tipo}</option>";
+                                    $selected = ($tipo->id_tipoDisco == $disco->id_tipoDisco) ? 'selected' : '';
+                                    echo "<option value='{$tipo->id_tipoDisco}' {$selected}>{$tipo->tipo}</option>";
                                 }
                                 ?>
                             </select>
@@ -56,11 +57,11 @@ $disco = $sql->fetch_object();
                     <div class="row m-1">
                         <div class="col-6">
                             <select name="genero" class="form-control form-control-sm" required>
-                                <option value="">Seleccione el género</option>
                                 <?php
                                 $generos = $conexion->query("SELECT * FROM genero");
                                 while ($genero = $generos->fetch_object()) {
-                                    echo "<option value='{$genero->id_Genero}'>{$genero->nombre}</option>";
+                                    $selected = ($genero->id_Genero == $disco->id_Genero) ? 'selected' : '';
+                                    echo "<option value='{$genero->id_Genero}' {$selected}>{$genero->nombre}</option>";
                                 }
                                 ?>
                             </select>
@@ -71,7 +72,8 @@ $disco = $sql->fetch_object();
                                 <?php
                                 $artistas = $conexion->query("SELECT * FROM artista");
                                 while ($artista = $artistas->fetch_object()) {
-                                    echo "<option value='{$artista->id_Artista}'>{$artista->nombre}</option>";
+                                    $selected = ($artista->id_Artista == $disco->id_Artista) ? 'selected' : '';
+                                    echo "<option value='{$artista->id_Artista}' {$selected}>{$artista->nombre}</option>";
                                 }
                                 ?>
                             </select>
@@ -86,10 +88,10 @@ $disco = $sql->fetch_object();
                         <div class="col-6">
                             <input type="text" value="<?= $disco->precio ?>" name="precio" class="form-control form-control-sm" placeholder="Precio">
                         </div>
-                        <div class="col-12 mt-2">
+                        <div class="col-6">
                             <input type="file" class="form-control form-control-sm" name="portada-disco">
                         </div>
-                        <div class="col-12 mt-2">
+                        <div class="col-6 mt-2">
                             <img src="<?= $disco->portadaURL ?>" alt="Imagen Actual" style="max-width: 100px; max-height: 100px;">
                         </div>
                     </div>

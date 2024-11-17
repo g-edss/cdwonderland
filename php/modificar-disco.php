@@ -25,16 +25,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['formulario'])) {
             if (move_uploaded_file($_FILES['portada-disco']['tmp_name'], $ruta)) {
                 
                 $query = "UPDATE disco SET titulo='$titulo', id_tipoDisco='$tipo', id_Genero='$genero', id_Artista='$artista', descripcion='$descripcion',
-                precio='$precio', portadaURL='$ruta'";
+                precio='$precio', portadaURL='$ruta' WHERE id_Disco = '$id'";
                 $ejecutar = mysqli_query($conexion, $query);
 
                 if ($ejecutar) {
                     echo '<script>window.location.href = "../paginas/admin-discos.php";</script>';
                 } else {
-                    echo '<div class="text-center text-danger"><p>Ocurrió un error, intente de nuevo.</p></div>';
+                    echo '<div class="text-center text-danger"><p>Ocurrió un error, intente de nuevo. Error: ' . mysqli_error($conexion) . '</p></div>';
                 }
             } else {
-                echo '<div class="text-center text-danger"><p>Error al subir la portada.</p></div>';
+                echo '<div class="text-center text-danger"><p>Error al subir la imagen.</p></div>';
             }
         }
     }

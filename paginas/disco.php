@@ -1,24 +1,12 @@
 <?php
 include '../php/database.php';
-$id_disco = $_GET["id_disco"];
+$id = $_GET["id_disco"];
 
-$sql = $conexion->query("
-    SELECT 
-        disco.*,
-        artista.nombre AS artista_nombre
-    FROM 
-        disco 
-    LEFT JOIN 
-        artista ON disco.id_Artista = artista.id_Artista
-    WHERE 
-        disco.id_Artista = $id_disco;
-");
+$sql = $conexion->query("SELECT * FROM disco");
+$disco = $sql->fetch_object();
 
-if ($sql) {
-    $disco = $sql->fetch_object();
-} else {
-    echo "Error en la consulta: " . $conexion->error;
-}
+$sql2 = $conexion->query("SELECT * FROM artista WHERE id_Artista = $id");
+$artista = $sql2->fetch_object();
 ?>
 
 <!DOCTYPE html>
@@ -76,23 +64,26 @@ if ($sql) {
     </div>
 
     <div class="container-fluid secciones">
-        <h1 class="mt-5 m-4 fw-bold"><?= $disco->artista_nombre ?></h1>
+        <h1 class="mt-5 m-4 fw-bold"><?= $artista->nombre ?></h1>
         <div class="row align-items-center">
             <?php
-            while ($disco) { ?>
-                <div class="col-lg-4 col-md-6 col gx-5 gy-4">
+            while ($disco = $sql->fetch_object()) {
+                if ($disco->id_Artista == $artista->id_Artista) {?>
+                    <div class="col-lg-4 col-md-6 col gx-5 gy-4">
                     <div class="card shadow" id="animacion">
                         <div class="card-body">
                             <div class="d-flex align-items-center justify-content-around mx-3">
                                 <a href="../paginas/info-disco.php?id=<?= $disco->id_Disco ?>">
-                                    <img alt="<?= $disco->artista_nombre ?>" src="<?= $disco->portadaURL ?>" class="portada">
+                                    <img alt="<?= $disco->titulo ?>" src="<?= $disco->portadaURL ?>" class="portada">
                                 </a>
-                                <a href="../paginas/info-disco.php?id=<?= $disco->id_Disco ?>" class="h4 text-center text-dark text-capitalize"><?= $disco->nombre ?></a>
+                                <a href="../paginas/info-disco.php?id=<?= $disco->id_Disco ?>" class="h4 text-center text-dark text-capitalize"><?= $disco->titulo ?></a>
                             </div>
                         </div>
                     </div>
-                </div>
-            <?php }
+                </div> 
+                <?php }
+                
+            }
             ?>
         </div>
     </div>
