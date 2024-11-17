@@ -1,5 +1,5 @@
 <?php
-include 'database.php';
+session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['formulario'])) {
     $formulario = $_POST['formulario'];
@@ -22,6 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['formulario'])) {
             );
 
             if (mysqli_num_rows($validar_login) > 0) {
+                $_SESSION['login'] = true;
+                $_SESSION['nombre'] = $nombre;
+                $_SESSION['apellido'] = $apellido;
+                $_SESSION['contraseña'] = $hash;
+
                 echo '<script>
                     window.location.href = "../paginas/admin-main.php"
                     </script>';

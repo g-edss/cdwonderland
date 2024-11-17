@@ -66,7 +66,7 @@
                                 <a href="../paginas/disco.php?id_disco=<?= $info->id_Artista ?>">
                                     <img alt="<?= $info->nombre ?>" src="<?= $info->imagenURL ?>" class="portada">
                                 </a>
-                                <a href="../paginas/disco.php?id_disco=<?= $info->id_Artista ?>" class="h4 text-center text-dark text-capitalize"><?= $info->nombre ?></a>
+                                <a href="../paginas/disco.php?id_disco=<?= $info->id_Artista ?>" class="h4 text-center text-dark"><?= $info->nombre ?></a>
                             </div>
                         </div>
                     </div>

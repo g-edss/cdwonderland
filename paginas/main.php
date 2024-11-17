@@ -53,24 +53,34 @@
         </nav>
     </div>
 
-    <div class="container">
-        <h3 class="text-center mt-5">¡Aquí encontarás los discos de tus artistas favoritos!</h3>
-        <div id="carousel" class="carousel slide mt-3" data-bs-ride="carousel">
+    <div class="container"><!---->
+        <h2 class="text-center text-italic my-5">¡Aquí encontarás los discos de tus artistas favoritos!</h2>
+        <div id="carousel" class="carousel slide mx-3" data-bs-ride="carousel">
             <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="..." class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="..." class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="..." class="d-block w-100" alt="...">
-              </div>
+                <?php
+                include '../php/database.php';
+                $sql = $conexion->query("SELECT * FROM disco ORDER BY id_Disco DESC LIMIT 3");
+                $active = true;
+                while ($imagen = $sql->fetch_object()) {
+                    if ($active == true) {
+                        echo "
+                        <div class='carousel-item active'>
+                            <img src='{$imagen->portadaURL}' class='d-block w-50 mx-auto' alt='{$imagen->titulo}'>
+                        </div>";
+                        $active = false;
+                    } else {
+                        echo "
+                        <div class='carousel-item'>
+                            <img src='{$imagen->portadaURL}' class='d-block w-50 mx-auto' alt='{$imagen->titulo}'>
+                        </div>";
+                    }
+                }
+                ?>
             </div>
-          </div>
+        </div>
     </div>
 
-    <footer class="fixed-bottom text-white pt-3">
+    <footer class="sticky-bottom text-white pt-3">
         <div class="container justify-content-center text-center">
             <div class="row">
                 <div class="col-lg-3 mb-lg-0 mb-2">
@@ -99,5 +109,3 @@
         crossorigin="anonymous"></script>
 
 </body>
-
-</php>

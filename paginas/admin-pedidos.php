@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['login']) || $_SESSION['login'] !== true) {
+    echo '<script>
+            window.location.href = "../paginas/admin-login.php"
+        </script>';
+}
+exit;
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 

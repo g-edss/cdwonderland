@@ -5,8 +5,8 @@ $id = $_GET["id_disco"];
 $sql = $conexion->query("SELECT * FROM disco");
 $disco = $sql->fetch_object();
 
-$sql2 = $conexion->query("SELECT * FROM artista WHERE id_Artista = $id");
-$artista = $sql2->fetch_object();
+$sql2 = $conexion->query("SELECT * FROM genero WHERE id_Genero = $id");
+$genero = $sql2->fetch_object();
 ?>
 
 <!DOCTYPE html>
@@ -43,10 +43,10 @@ $artista = $sql2->fetch_object();
                 <div class="collapse navbar-collapse" id="navbarToggler">
                     <ul class="navbar-nav justify-content-between w-100 px-5">
                         <li class="nav-item text-danger">
-                            <a href="../paginas/artistas.php" class="nav-link active" aria-current="page">ARTISTAS</a>
+                            <a href="../paginas/artistas.php" class="nav-link">ARTISTAS</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../paginas/generos.php" class="nav-link">GÉNEROS</a>
+                            <a href="../paginas/generos.php" class="nav-link active" aria-current="page">GÉNEROS</a>
                         </li>
                         <li class="nav-item">
                             <a href="../paginas/ediciones-especiales.php" class="nav-link">EDICIONES ESPECIALES</a>
@@ -64,24 +64,25 @@ $artista = $sql2->fetch_object();
     </div>
 
     <div class="container-fluid secciones">
-        <h1 class="mt-5 m-4 fw-bold text-capitalize"><?= $artista->nombre ?></h1>
+        <h1 class="mt-5 m-4 fw-bold text-capitalize"><?= $genero->nombre ?></h1>
         <div class="row align-items-center">
             <?php
             while ($disco = $sql->fetch_object()) {
-                if ($disco->id_Artista == $artista->id_Artista) { ?>
+                if ($disco->id_Genero == $genero->id_Genero) {?>
                     <div class="col-lg-4 col-md-6 col gx-5 gy-4">
-                        <div class="card shadow" id="animacion">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center justify-content-around mx-3">
-                                    <a href="../paginas/info-disco.php?id=<?= $disco->id_Disco ?>">
-                                        <img alt="<?= $disco->titulo ?>" src="<?= $disco->portadaURL ?>" class="portada">
-                                    </a>
-                                    <a href="../paginas/info-disco.php?id=<?= $disco->id_Disco ?>" class="h4 text-center text-dark"><?= $disco->titulo ?></a>
-                                </div>
+                    <div class="card shadow" id="animacion">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center justify-content-around mx-3">
+                                <a href="../paginas/info-disco.php?id=<?= $disco->id_Disco ?>">
+                                    <img alt="<?= $disco->titulo ?>" src="<?= $disco->portadaURL ?>" class="portada">
+                                </a>
+                                <a href="../paginas/info-disco.php?id=<?= $disco->id_Disco ?>" class="h4 text-center text-dark"><?= $disco->titulo ?></a>
                             </div>
                         </div>
                     </div>
-            <?php }
+                </div> 
+                <?php }
+                
             }
             ?>
         </div>

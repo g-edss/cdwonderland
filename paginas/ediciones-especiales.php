@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/general.css">
-    <title>Ediciones Especiales</title>
+    <title>Ediciones Especiales - CD Wonderland</title>
 </head>
 
 <body class="vh-100">
@@ -66,7 +66,7 @@
                                 <a href="../paginas/info-disco.php?id=<?= $info->id_Disco ?>">
                                     <img alt="<?= $info->titulo ?>" src="<?= $info->portadaURL ?>" class="portada">
                                 </a>
-                                <a href="../paginas/info-disco.php?id=<?= $info->id_Disco ?>" class="h5 text-center text-dark text-capitalize"><?= $info->titulo ?></a>
+                                <a href="../paginas/info-disco.php?id=<?= $info->id_Disco ?>" class="h5 text-center text-dark"><?= $info->titulo ?></a>
                             </div>
                         </div>
                     </div>
