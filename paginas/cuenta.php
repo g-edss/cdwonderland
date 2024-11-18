@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (isset($_SESSION['nombre'])) {
+    header("Location: ../paginas/perfil.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 
@@ -78,7 +86,7 @@
                                 <input type="password" name="contraseña" class="form-control" placeholder="Contraseña">
                             </div>
                             <div class="col-12 mt-3">
-                                <button type="submit" class="btn btn-sm" name="registro">Registrarse</button>
+                                <button type="submit" class="btn btn-sm">Registrarse</button>
                             </div>
                         </form>
                     </div>
@@ -90,6 +98,7 @@
                     <div class="card-body m-2">
                         <h2 class="text-center fw-bold m-2">Inicia Sesión</h2>
                         <?php
+
                         include '../php/database.php';
                         include '../php/login-usuario.php';
                         ?>

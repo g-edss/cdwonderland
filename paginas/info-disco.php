@@ -1,4 +1,5 @@
 <?php
+
 include '../php/database.php';
 $id = $_GET["id"];
 
@@ -79,19 +80,20 @@ $datosDisco = $sql->fetch_object();
                     <h2 class="fw-bold mt-2 text-capitalize"><?= $datosDisco->titulo ?></h2>
                     <h5 class="text-muted fst-italic text-capitalize"><?= $datosDisco->artista_nombre ?></h5>
                     <h4>$<?= $datosDisco->precio ?></h4>
-                    <p class="mt-4 float-start p-1">
+                    <p class="mt-2 float-start p-1">
                         <?= $datosDisco->descripcion ?>
                     </p>
+                    <form action="../php/agregar-carrito.php" method="POST" class="w-50">
                     <select name="cantidad" class="form-control form-control-sm" required>
                         <option value="">Cantidad</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                     </select>
-                    <input type="hidden" name="id" value="">
-                    <button type="submit" class="mt-5 btn btn-sm" name="agregar">Agregar al Carrito</button>
+                    <input type="hidden" name="id" value="<?= $datosDisco->id_Disco ?>">
+                    <button type="submit" class="mt-4 btn btn-sm" name="agregar">Agregar al Carrito</button>
+                    </form>
                 </div>
-
             </div>
         </div>
     </div>

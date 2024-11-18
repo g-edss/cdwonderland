@@ -53,7 +53,7 @@
         </nav>
     </div>
 
-    <div class="container"><!---->
+    <div class="container">
         <h2 class="text-center text-italic my-5">¡Aquí encontarás los discos de tus artistas favoritos!</h2>
         <div id="carousel" class="carousel slide mx-3" data-bs-ride="carousel">
             <div class="carousel-inner">

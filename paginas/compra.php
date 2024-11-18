@@ -15,20 +15,71 @@
         <div class="container-fluid text-white fw-bold" id="headerTop">
             <div class="d-flex align-items-center">
                 <div class="d-flex align-items-center justify-content-center flex-grow-1" style="margin-left: 125px;">
-                    <a href="../html/main.html" class="h5 me-2 mb-0">CD WONDERLAND</a>
+                    <a href="../paginas/main.php" class="h5 me-2 mb-0">CD WONDERLAND</a>
                     <img class="logo" src="../images/wave-sound.png">
                 </div>
                 <div class="d-flex align-items-center mx-2 mb-0">
-                    <a href="../html/carrito.html" class="h6 me-2 mb-0">Mi Carrito</a>
+                    <a href="../paginas/carrito.php" class="h6 me-2 mb-0">Mi Carrito</a>
                     <img class="logo" src="../images/shopping-cart.png">
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-lg-8">
+        <h2 class="text-center fw-bold m-2">Ingresa tus Datos</h2>
+            <?php
+            include '../php/database.php';
+            include '../php/login-usuario.php';
+            ?>
+            <form class="" method="POST">
+                <div class="row g-3">
+                    <h5 class="fw-bold">Datos Personales</h5>
+                    <div class="col-6">
+                        <input type="text" name="nombre" class="form-control form-control-sm" placeholder="Nombre">
+                    </div>
+                    <div class="col-6">
+                        <input type="text" name="apellido" class="form-control form-control-sm" placeholder="Apellido">
+                    </div>
+                    <div class="col-12">
+                        <input type="text" name="telefono" class="form-control form-control-sm" placeholder="Telefono">
+                    </div>
+                    <div class="col-6">
+                        <input type="text" name="estado" class="form-control form-control-sm" placeholder="Estado">
+                    </div>
+                    <div class="col-6">
+                        <input type="text" name="municipio" class="form-control form-control-sm" placeholder="Municipio">
+                    </div>
+                    <div class="col-12">
+                        <input type="text" name="calleNum" class="form-control form-control-sm" placeholder="Calle y Número">
+                    </div>
+                </div>
+                <div class="row g-3">
+                    <h5 class="fw-bold">Datos Personales</h5>
+                    <div class="col-6">
+                        <input type="text" name="nombre" class="form-control form-control-sm" placeholder="Nombre">
+                    </div>
+                    <div class="col-6">
+                        <input type="text" name="apellido" class="form-control form-control-sm" placeholder="Apellido">
+                    </div>
+                    <div class="col-12">
+                        <input type="text" name="telefono" class="form-control form-control-sm" placeholder="Telefono">
+                    </div>
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-sm " name="compra">Ingresar</button>
+                    </div>
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-sm " name="compra">Ingresar</button>
+                    </div>
+            </form>
+        </div>
+        <div class="col-lg-4 bg-info">
 
+        </div>
+    </div>
 
-    <footer class="fixed-bottom text-white pt-3">
+    <footer class="sticky-bottom text-white pt-3">
         <div class="container justify-content-center text-center">
             <div class="row">
                 <div class="col-lg-3 mb-lg-0 mb-2">

@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['formulario'])) {
                 $ejecutar = mysqli_query($conexion, $query);
 
                 if ($ejecutar) {
-                    echo '<script>window.location.href = "../paginas/admin-ayg.php";</script>';
+                    header("Location: ../paginas/admin-ayg.php");
                 } else {
                     echo '<div class="text-center text-danger"><p>Ocurrió un error, intente de nuevo. Error: ' . mysqli_error($conexion) . '</p></div>';
                 }

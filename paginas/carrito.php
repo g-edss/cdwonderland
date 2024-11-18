@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['nombre'])) {
+    echo '<script>
+            alert("Inicia sesión.");
+            window.location = "../paginas/cuenta.php";
+        </script>
+        ';
+    session_destroy();
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 
@@ -7,10 +21,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/general.css">
-    <title>Mi Carrito</title>
+    <title>Ediciones Especiales - CD Wonderland</title>
 </head>
 
-<body class="h-100">
+<body class="vh-100">
     <div class="header sticky-top">
         <div class="container-fluid text-white fw-bold" id="headerTop">
             <div class="d-flex align-items-center">
@@ -38,7 +52,7 @@
                             <a href="../paginas/generos.php" class="nav-link">GÉNEROS</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../paginas/ediciones-especiales.php" class="nav-link">EDICIONES ESPECIALES</a>
+                            <a href="../paginas/ediciones-especiales.php" class="nav-link active" aria-current="page">EDICIONES ESPECIALES</a>
                         </li>
                         <li class="nav-item">
                             <a href="../paginas/cuenta.php" class="nav-link">CUENTA</a>
@@ -52,38 +66,35 @@
         </nav>
     </div>
 
-    <div class="container-lg">
-        <div class="card m-5 p-3 shadow">
-            <div class="card-body row">
-                <div class="col-lg-4 img-container">
-                    <img src="<?= $datosDisco->portadaURL ?>" alt="<?= $datosDisco->titulo ?>" class="img-fluid img-centro mw-lg-25">
-                </div>
-                <div class="card-content col-lg-8">
-                    <h2 class="fw-bold mt-2 text-capitalize"><?= $datosDisco->titulo ?></h2>
-                    <h5 class="text-muted fst-italic text-capitalize"><?= $datosDisco->artista_nombre ?></h5>
-                    <h4>$<?= $datosDisco->precio ?></h4>
-                    <p class="mt-4 float-start p-1">
-                        <?= $datosDisco->descripcion ?>
-                    </p>
-                    <select name="cantidad" class="form-control form-control-sm" required>
-                        <option value="">Cantidad</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-                    <input type="hidden" name="id" value="">
-                    <button type="submit" class="mt-5 btn btn-sm" name="agregar">Agregar al Carrito</button>
-                </div>
-
+    <div class="container-fluid secciones">
+        <h1 class="mt-5 m-4 fw-bold">Mi Carrito</h3>
+            <div class="row align-items-center">
+                <?php
+                include '../php/database.php';
+                $sql = $conexion->query("SELECT * FROM disco WHERE id_tipoDisco = 2");
+                while ($info = $sql->fetch_object()) { ?>
+                    <div class="col-lg-4 col-md-6 col gx-5 gy-4">
+                        <div class="card shadow" id="animacion">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center justify-content-around mx-3">
+                                    <a href="../paginas/info-disco.php?id=<?= $info->id_Disco ?>">
+                                        <img alt="<?= $info->titulo ?>" src="<?= $info->portadaURL ?>" class="portada">
+                                    </a>
+                                    <a href="../paginas/info-disco.php?id=<?= $info->id_Disco ?>" class="h5 text-center text-dark"><?= $info->titulo ?></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php }
+                ?>
             </div>
-        </div>
     </div>
 
-    <footer class="sticky-botom text-white pt-3">
+    <footer class="fixed-bottom text-white pt-3">
         <div class="container justify-content-center text-center">
             <div class="row">
                 <div class="col-lg-3 mb-lg-0 mb-2">
-                    <span class="h5">!Contáctanos!</span>
+                    <span class="h5">¡Contáctanos!</span>
                 </div>
                 <div class="col-lg-6 d-flex justify-content-around mb-2">
                     <a href="https://wa.me/" target="_blank">

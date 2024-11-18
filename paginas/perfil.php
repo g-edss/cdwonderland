@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['nombre'])) {
+    echo '<script>
+            alert("Inicia sesión.");
+            window.location = "../paginas/cuenta.php";
+        </script>
+        ';
+    session_destroy();
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 
@@ -21,6 +35,9 @@
                 <div class="d-flex align-items-center mx-2 mb-0">
                     <a href="../paginas/carrito.html" class="h6 me-2 mb-0">Mi Carrito</a>
                     <img class="logo" src="../images/shopping-cart.png">
+                </div>
+                <div class="d-flex align-items-center mx-2 mb-0">
+                    <a href="../php/cerrar-sesion.php" class="h6 me-2 mb-0">Cerrar Sesión</a>
                 </div>
             </div>
         </div>
@@ -52,7 +69,9 @@
         </nav>
     </div>
 
-
+    <div class="container">
+        <h3>!Bienvenido <?php echo $_SESSION['nombre']?> <?php echo $_SESSION['apellido'];?>!</h3>
+    </div>
 
     <footer class="fixed-bottom text-white pt-3">
         <div class="container justify-content-center text-center">

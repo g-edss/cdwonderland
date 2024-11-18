@@ -1,5 +1,5 @@
 <?php
-session_start();
+include 'database.php';
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['formulario'])) {
     $formulario = $_POST['formulario'];
@@ -18,21 +18,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['formulario'])) {
 
             $validar_login = mysqli_query(
                 $conexion,
-                "SELECT * FROM usuario WHERE nombre = '$nombre' AND apellido = '$apellido' AND contraseña = '$hash' AND id_Rol = 1"
+                "SELECT * FROM usuario WHERE nombre = '$nombre' AND apellido = '$apellido' AND contraseña = '$hash' AND id_Rol = 2"
             );
 
             if (mysqli_num_rows($validar_login) > 0) {
-                $_SESSION['login'] = true;
-                $_SESSION['nombre'] = $nombre;
-                $_SESSION['apellido'] = $apellido;
-                $_SESSION['contraseña'] = $hash;
 
-                echo '<script>
-                    window.location.href = "../paginas/admin-main.php"
-                    </script>';
+                echo "<script>
+                    window.location = '../paginas/admin-main.php';
+                    </script>";
             } else {
                 echo '<div class="text-center text-danger"><p>No se encontró el usuario, verifique los datos.</p></div>';
             }
         }
     }
 }
+?>
