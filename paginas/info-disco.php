@@ -1,6 +1,7 @@
 <?php
 
 include '../php/database.php';
+
 $id = $_GET["id"];
 
 $sql = $conexion->query("
@@ -70,6 +71,12 @@ $datosDisco = $sql->fetch_object();
         </nav>
     </div>
 
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+        </symbol>
+    </svg>
+
     <div class="container-lg">
         <div class="card m-5 p-3 shadow">
             <div class="card-body row">
@@ -84,21 +91,22 @@ $datosDisco = $sql->fetch_object();
                         <?= $datosDisco->descripcion ?>
                     </p>
                     <form action="../php/agregar-carrito.php" method="POST" class="w-50">
-                    <select name="cantidad" class="form-control form-control-sm" required>
-                        <option value="">Cantidad</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-                    <input type="hidden" name="id" value="<?= $datosDisco->id_Disco ?>">
-                    <button type="submit" class="mt-4 btn btn-sm" name="agregar">Agregar al Carrito</button>
+                        <select name="cantidad" class="form-control form-control-sm" required>
+                            <option value="">Cantidad</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <input type="hidden" name="id_disco" value="<?= $datosDisco->id_Disco ?>">
+                        <input type="hidden" name="precio" value="<?= $datosDisco->precio ?>">
+                        <button type="submit" class="mt-4 btn btn-sm" name="agregar">Agregar al Carrito</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer class="sticky-botom text-white pt-3">
+    <footer class="sticky-botom text-white pt-4">
         <div class="container justify-content-center text-center">
             <div class="row">
                 <div class="col-lg-3 mb-lg-0 mb-2">
