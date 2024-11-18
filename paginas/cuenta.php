@@ -1,9 +1,14 @@
 <?php
 session_start();
 
-if (isset($_SESSION['nombre'])) {
+if (isset($_SESSION['id_usuario'])) {
     header("Location: ../paginas/perfil.php");
 }
+
+include '../php/database.php';
+
+$sql = $conexion->query("SELECT * FROM usuario");
+$usuario = $sql->fetch_object();
 ?>
 
 <!DOCTYPE html>
@@ -113,6 +118,7 @@ if (isset($_SESSION['nombre'])) {
                             <div class="col-12 mt-3">
                                 <input type="password" name="contraseña" class="form-control" placeholder="Contraseña">
                             </div>
+                            <input type="hidden" name="id_usuario" value=<?=$usuario->id_Usuario?>>
                             <div class="col-12 mt-4">
                                 <button type="submit" class="btn btn-sm">Ingresar</button>
                             </div>

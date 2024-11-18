@@ -15,6 +15,9 @@ $sql = $conexion->query("
         WHERE id_Disco = $id;
     ");
 $datosDisco = $sql->fetch_object();
+
+$sql2 = $conexion->query("SELECT * FROM usuario");
+$usuario = $sql2->fetch_object();
 ?>
 
 <!DOCTYPE html>
@@ -99,6 +102,7 @@ $datosDisco = $sql->fetch_object();
                         </select>
                         <input type="hidden" name="id_disco" value="<?= $datosDisco->id_Disco ?>">
                         <input type="hidden" name="precio" value="<?= $datosDisco->precio ?>">
+                        <input type="hidden" name="id_usuario" value="<?= $usuario->id_Usuario ?>">
                         <button type="submit" class="mt-4 btn btn-sm" name="agregar">Agregar al Carrito</button>
                     </form>
                 </div>

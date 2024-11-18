@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['nombre'])) {
+if (!isset($_SESSION['id_usuario'])) {
     echo '<script>
             alert("Inicia sesión.");
             window.location = "../paginas/cuenta.php";
@@ -10,6 +10,7 @@ if (!isset($_SESSION['nombre'])) {
     session_destroy();
     die();
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -25,19 +26,16 @@ if (!isset($_SESSION['nombre'])) {
 </head>
 
 <body class="h-100">
-    <div class="header sticky-top">
+<div class="header sticky-top">
         <div class="container-fluid text-white fw-bold" id="headerTop">
             <div class="d-flex align-items-center">
                 <div class="d-flex align-items-center justify-content-center flex-grow-1" style="margin-left: 125px;">
-                    <a href="../paginas/main.html" class="h5 me-2 mb-0">CD WONDERLAND</a>
+                    <a href="../paginas/main.php" class="h5 me-2 mb-0">CD WONDERLAND</a>
                     <img class="logo" src="../images/wave-sound.png">
                 </div>
                 <div class="d-flex align-items-center mx-2 mb-0">
-                    <a href="../paginas/carrito.html" class="h6 me-2 mb-0">Mi Carrito</a>
+                    <a href="../paginas/carrito.php" class="h6 me-2 mb-0">Mi Carrito</a>
                     <img class="logo" src="../images/shopping-cart.png">
-                </div>
-                <div class="d-flex align-items-center mx-2 mb-0">
-                    <a href="../php/cerrar-sesion.php" class="h6 me-2 mb-0">Cerrar Sesión</a>
                 </div>
             </div>
         </div>
@@ -48,14 +46,14 @@ if (!isset($_SESSION['nombre'])) {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarToggler">
                     <ul class="navbar-nav justify-content-between w-100 px-5">
-                        <li class="nav-item">
-                            <a href="../paginas/artistas.html" class="nav-link">ARTISTAS</a>
+                        <li class="nav-item text-danger">
+                            <a href="../paginas/artistas.php" class="nav-link">ARTISTAS</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../paginas/generos.html" class="nav-link">GÉNEROS</a>
+                            <a href="../paginas/generos.php" class="nav-link">GÉNEROS</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../paginas/ediciones-especiales.html" class="nav-link">EDICIONES ESPECIALES</a>
+                            <a href="../paginas/ediciones-especiales.php" class="nav-link">EDICIONES ESPECIALES</a>
                         </li>
                         <li class="nav-item">
                             <a href="../paginas/cuenta.php" class="nav-link">CUENTA</a>
@@ -70,7 +68,7 @@ if (!isset($_SESSION['nombre'])) {
     </div>
 
     <div class="container">
-        <h3>!Bienvenido <?php echo $_SESSION['nombre']?> <?php echo $_SESSION['apellido'];?>!</h3>
+        <h3>!Tus compras!</h3>
     </div>
 
     <footer class="fixed-bottom text-white pt-3">
