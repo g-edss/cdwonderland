@@ -20,18 +20,14 @@ if (isset($_SESSION['id_usuario'])) {
         $ejecutar = mysqli_query($conexion, $query);
 
         if ($ejecutar) {
-            echo '
-                <div class="alert alert-success d-flex align-items-center mx-auto mt-4" style="max-width: fit-content;" role="alert">
-                <svg class="bi flex-shrink-0 me-2" width="20" height="20" role="img" aria-label="Success:">
-                    <use xlink:href="#check-circle-fill"/>
-                </svg>
-                <div>Agregado al carrito!</div>
-                </div>
-            ';
+            echo '<script>
+            alert("¡Agregado al carrito!");
+                window.history.back();
+            </script>
+        ';
         }
     }
-        
-}else{
+} else {
     echo '<script>
             alert("Debes iniciar sesión para agregar productos.");
             window.history.back();

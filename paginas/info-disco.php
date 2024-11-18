@@ -80,7 +80,7 @@ $usuario = $sql2->fetch_object();
         </symbol>
     </svg>
 
-    <div class="container-lg">
+    <div class="container-lg"> 
         <div class="card m-5 p-3 shadow">
             <div class="card-body row">
                 <div class="col-lg-4 img-container">

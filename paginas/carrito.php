@@ -67,46 +67,32 @@ if (!isset($_SESSION['id_usuario'])) {
     </div>
 
     <div class="container-fluid secciones">
-        <h1 class="mt-5 m-4 fw-bold">Mi Carrito</h3>
-            <div class="row align-items-center">
-                <?php
-
-                if (!isset($_SESSION['carrito'])) {
-                    echo "No hay productos en el carrito";
-                } else {
-                    foreach ($_SESSION['carrito'] as $id => $producto) {
-                        $cantidad = $producto['cantidad'];
-                        $precio = $producto['precio'];
-                        $sql = $conexion->query("SELECT * FROM disco");
-                        $disco = $sql->fetch_object();
-
-                        if ($disco) {
-                            echo '<div class="col-lg-4 col-md-6 col gx-5 gy-4">';
-                            echo '<div class="card shadow" id="animacion">';
-                            echo '<div class="card-body">';
-                            echo '<div class="d-flex align-items-center justify-content-around mx-3 my-2">';
-                            echo '<a href="../paginas/info-disco.php?id=<?= $disco->id_Disco ?>">';
-                            echo '<img alt="<?= $disco->titulo ?>" src="<?= $disco->portadaURL ?>" class="portada">';
-                            echo '</a>';
-                            echo '<h4>$<?= $$disco->precio ?></h4>';
-                            echo '<p class="mt-2 float-start p-1">
-                                        Cantidad: <?= $info->cantidad ?>
-                                    </p>';
-                            echo '</div>';
-                            echo '<button type="submit" class="ms-3 mt-2 btn btn-sm">Eliminar</button>';
-                            echo ' </div>';
-                            echo '</div>';
-                            echo '</div>';
-                        }
-                    }
-                }
-                ?>
-            </div>
+        <h1 class="mt-5 m-4 fw-bold">Mi Carrito</h1>
+        <div class="row align-items-center">
+            <?php
+            include '../php/database.php';
+            $sql = $conexion->query("SELECT * FROM carrito");
+            while ($info = $sql->fetch_object()) { ?>
+                <div class="col-lg-4 col-md-6 col gx-5 gy-4">
+                    <div class="card shadow" id="animacion">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center justify-content-around mx-3">
+                                <a href="../paginas/disco.php?id_disco=<?= $info->id_Artista ?>">
+                                    <img alt="<?= $info->nombre ?>" src="<?= $info->imagenURL ?>" class="portada">
+                                </a>
+                                <a href="../paginas/disco.php?id_disco=<?= $info->id_Artista ?>" class="h4 text-center text-dark"><?= $info->nombre ?></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php }
+            ?>
+        </div>
     </div>
     <div class="container-fluid mt-4">
         <div class="row">
-            <div class="col-6 text-end"><a href="../paginas/main.php" class="mt-4 btn btn-sm">Seguir Comprando</a> </div>
-            <div class="col-6"><button type="submit" class="mt-4 btn btn-sm">Agregar al Carrito</button> </div>
+            <div class="col-6 text-end"><a href="../paginas/main.php" class="mt-4 btn btn-sm">Seguir Comprando</a></div>
+            <div class="col-6"><button type="submit" class="mt-4 btn btn-sm">Comprar</button> </div>
         </div>
     </div>
 
