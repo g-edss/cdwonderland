@@ -71,7 +71,7 @@ if (!isset($_SESSION['id_usuario'])) {
     </div>
 
     <div class="container">
-        <h3>!Tus compras!</h3>
+        <h3 class="mt-5">¡Tus compras!</h3>
     </div>
 
     <footer class="fixed-bottom text-white pt-3">
