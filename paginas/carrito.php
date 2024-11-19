@@ -113,7 +113,11 @@ $sql = $conexion->query("
     <div class="container-fluid mt-4">
         <div class="row">
             <div class="col-6 text-end"><a href="../paginas/main.php" class="mt-4 btn btn-sm">Seguir Comprando</a></div>
-            <div class="col-6"><button type="submit" class="mt-4 btn btn-sm">Comprar</button> </div>
+            <form action="../php/procesar-compra.php" method="POST">
+                <input type="hidden" name="id_disco" value="<?= $datos->id_Disco ?>">
+                <input type="hidden" name="id_usuario" value="<?= $datos->id_Usuario ?>">
+                <div class="col-6"><button type="submit" name="comprar" value="" class="mt-4 btn btn-sm">Comprar</button> </div>
+            </form>
         </div>
     </div>
 

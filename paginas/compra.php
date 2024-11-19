@@ -26,57 +26,53 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-lg-8">
+    <div class="container mt-5 w-50">
         <h2 class="text-center fw-bold m-2">Ingresa tus Datos</h2>
-            <?php
-            include '../php/database.php';
-            include '../php/login-usuario.php';
-            ?>
-            <form class="" method="POST">
-                <div class="row g-3">
-                    <h5 class="fw-bold">Datos Personales</h5>
-                    <div class="col-6">
-                        <input type="text" name="nombre" class="form-control form-control-sm" placeholder="Nombre">
-                    </div>
-                    <div class="col-6">
-                        <input type="text" name="apellido" class="form-control form-control-sm" placeholder="Apellido">
-                    </div>
-                    <div class="col-12">
-                        <input type="text" name="telefono" class="form-control form-control-sm" placeholder="Telefono">
-                    </div>
-                    <div class="col-6">
-                        <input type="text" name="estado" class="form-control form-control-sm" placeholder="Estado">
-                    </div>
-                    <div class="col-6">
-                        <input type="text" name="municipio" class="form-control form-control-sm" placeholder="Municipio">
-                    </div>
-                    <div class="col-12">
-                        <input type="text" name="calleNum" class="form-control form-control-sm" placeholder="Calle y Número">
-                    </div>
+        <?php
+        include '../php/database.php';
+        include '../php/login-usuario.php';
+        ?>
+        <form class="" method="POST">
+            <div class="row g-3">
+                <h5 class="fw-bold">Entrega y Contacto</h5>
+                <div class="col-6">
+                    <input type="text" name="nombre" class="form-control form-control-sm" placeholder="Nombre">
                 </div>
-                <div class="row g-3">
-                    <h5 class="fw-bold">Datos Personales</h5>
-                    <div class="col-6">
-                        <input type="text" name="nombre" class="form-control form-control-sm" placeholder="Nombre">
-                    </div>
-                    <div class="col-6">
-                        <input type="text" name="apellido" class="form-control form-control-sm" placeholder="Apellido">
-                    </div>
-                    <div class="col-12">
-                        <input type="text" name="telefono" class="form-control form-control-sm" placeholder="Telefono">
-                    </div>
-                    <div class="col-6">
-                        <button type="submit" class="btn btn-sm " name="compra">Ingresar</button>
-                    </div>
-                    <div class="col-6">
-                        <button type="submit" class="btn btn-sm " name="compra">Ingresar</button>
-                    </div>
-            </form>
-        </div>
-        <div class="col-lg-4 bg-info">
-
-        </div>
+                <div class="col-6">
+                    <input type="text" name="apellido" class="form-control form-control-sm" placeholder="Apellido">
+                </div>
+                <div class="col-12">
+                    <input type="text" name="telefono" class="form-control form-control-sm" placeholder="Telefono">
+                </div>
+                <div class="col-6">
+                    <input type="text" name="estado" class="form-control form-control-sm" placeholder="Estado">
+                </div>
+                <div class="col-6">
+                    <input type="text" name="municipio" class="form-control form-control-sm" placeholder="Municipio">
+                </div>
+                <div class="col-12">
+                    <input type="text" name="calleNum" class="form-control form-control-sm" placeholder="Calle y Número">
+                </div>
+            </div>
+            <div class="row g-3 mt-5">
+                <h5 class="fw-bold m-0">Método de pago</h5>
+                <div class="col-6">
+                    <input type="text" name="tarjeta" class="form-control form-control-sm" placeholder="Número de Tarjeta">
+                </div>
+                <div class="col-6">
+                    <input type="text" name="codigo" class="form-control form-control-sm" placeholder="Código de Seguridad">
+                </div>
+                <div class="col-12">
+                    <input type="date" name="vencimiento" class="form-control form-control-sm" placeholder="Vencimiento">
+                </div>
+                <div class="col-6">
+                    <button type="submit" class="btn btn-sm " name="aceptar">Aceptar</button>
+                </div>
+                <div class="col-6">
+                    <a href="../paginas/carrito.php" class="btn btn-sm " name="cancelar">Cancelar</a>
+                </div>
+        </form>
+    </div>
     </div>
 
     <footer class="sticky-bottom text-white pt-3">
