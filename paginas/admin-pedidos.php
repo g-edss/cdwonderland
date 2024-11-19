@@ -66,45 +66,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        include '../php/database.php';
-                        $sql = $conexion->query("
-                            SELECT 
-                                usuario.nombre AS nombre_cliente,
-                                usuario.email AS email_cliente,
-                                usuario.telefono AS telefono_cliente,
-                                compra.direccion AS direccion,
-                                usuario.direcEstado,
-                                usuario.direcMunicipio,
-                                compra.fechaCompra,
-                                p.titulo AS producto_titulo,
-                                dc.cantidad,
-                                (p.precio * dc.cantidad) AS total_producto
-                            FROM 
-                                compras c
-                            JOIN 
-                                usuarios u ON c.id_usuario = u.id
-                            JOIN 
-                                detalle_compra dc ON c.id = dc.id_compra
-                            JOIN 
-                                productos p ON dc.id_producto = p.id
-                            ");
-                        $totalPedido = 0;
-                        while ($datosCompra = $sql->fetch_object()) {
-                            $totalPedido += $datosCompra->total_producto;
-                        ?>
-                            <tr class="text-center bg-white fs-6">
-                                <td><?= $datosCompra->nombre_cliente ?></td>
-                                <td><?= $datosCompra->email_cliente ?></td>
-                                <td><?= $datosCompra->telefono_cliente ?></td>
-                                <td><?= $datosCompra->direccion ?>, <?= $datosCompra->direcEstado ?>, <?= $datosCompra->direcMunicipio ?></td>
-                                <td><?= $datosCompra->fecha_entrega ?></td> <!-- Asegúrate de que esta columna exista en tu tabla de compras -->
-                                <td><?= $datosCompra->fecha_compra ?></td>
-                                <td><?= $datosCompra->producto_titulo ?> (<?= $datosCompra->cantidad ?>)</td>
-                                <td><?= number_format($totalPedido, 2) ?></td>
-                            </tr>
-                        <?php }
-                        ?>
+                        
                     </tbody>
                 </table>
             </main>

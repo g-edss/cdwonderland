@@ -10,6 +10,20 @@ if (!isset($_SESSION['id_usuario'])) {
     die();
 }
 
+include '../php/database.php';
+
+$id_usuario = $_SESSION['id_usuario'];
+
+$sql = $conexion->query("
+        SELECT 
+            disco.*, 
+            carrito.*
+        FROM 
+            carrito 
+        LEFT JOIN 
+            disco ON disco.id_Disco = carrito.id_Disco
+        WHERE carrito.id_Usuario = $id_usuario;
+    ");
 ?>
 
 <!DOCTYPE html>
@@ -70,18 +84,25 @@ if (!isset($_SESSION['id_usuario'])) {
         <h1 class="mt-5 m-4 fw-bold">Mi Carrito</h1>
         <div class="row align-items-center">
             <?php
-            include '../php/database.php';
-            $sql = $conexion->query("SELECT * FROM carrito");
-            while ($info = $sql->fetch_object()) { ?>
+            while ($datos = $sql->fetch_object()) { ?>
                 <div class="col-lg-4 col-md-6 col gx-5 gy-4">
                     <div class="card shadow" id="animacion">
                         <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-around mx-3">
-                                <a href="../paginas/disco.php?id_disco=<?= $info->id_Artista ?>">
-                                    <img alt="<?= $info->nombre ?>" src="<?= $info->imagenURL ?>" class="portada">
+                            <div class="d-flex align-items-center justify-content-around ">
+                                <a href="../paginas/disco.php?id_disco=<?= $datos->id_Disco ?>">
+                                    <img alt="<?= $datos->titulo ?>" src="<?= $datos->portadaURL ?>" class="portada">
                                 </a>
-                                <a href="../paginas/disco.php?id_disco=<?= $info->id_Artista ?>" class="h4 text-center text-dark"><?= $info->nombre ?></a>
+                                <div class="flex-grow-1 mt-4">
+                                    <a href="../paginas/disco.php?id_disco=<?= $datos->id_Disco ?>" class="h4 text-center text-dark"><?= $datos->titulo ?></a>
+                                    <p class="mb-0 mt-3 fst-italic">$<?= $datos->precio ?></p>
+                                    <p class="mb-0 mt-2"><b>Cantidad:</b> <?= $datos->cantidad ?></p>
+                                </div>
                             </div>
+                            <form action="../php/eliminar-carrito.php" method="POST" class="w-50">
+                                <input type="hidden" name="id_disco" value="<?= $datos->id_Disco ?>">
+                                <input type="hidden" name="id_usuario" value="<?= $datos->id_Usuario ?>">
+                                <button type="submit" class="mt-4 btn btn-sm" name="eliminar">Eliminar</button>
+                            </form>
                         </div>
                     </div>
                 </div>

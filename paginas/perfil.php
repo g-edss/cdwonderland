@@ -34,6 +34,9 @@ if (!isset($_SESSION['id_usuario'])) {
                     <img class="logo" src="../images/wave-sound.png">
                 </div>
                 <div class="d-flex align-items-center mx-2 mb-0">
+                    <a href="../php/cerrar-sesion.php" class="h6 me-2 mb-0">Cerrar Sesión</a>
+                </div>
+                <div class="d-flex align-items-center mx-2 mb-0">
                     <a href="../paginas/carrito.php" class="h6 me-2 mb-0">Mi Carrito</a>
                     <img class="logo" src="../images/shopping-cart.png">
                 </div>

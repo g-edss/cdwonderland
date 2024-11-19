@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['formulario'])) {
 
             $validar_login = mysqli_query(
                 $conexion,
-                "SELECT * FROM usuario WHERE nombre = '$nombre' AND apellido = '$apellido' AND contraseña = '$hash' AND id_Rol = 2"
+                "SELECT * FROM usuario WHERE nombre = '$nombre' AND apellido = '$apellido' AND contraseña = '$hash' AND id_Rol = 1"
             );
 
             if (mysqli_num_rows($validar_login) > 0) {
